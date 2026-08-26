@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nissa Karadag — Rapport de stage · Sécurité des Systèmes Industriels</title>
+<meta name="description" content="Rapport d'activité professionnelle — Stage Assistante Cybersécurité chez GEEKTAFOOD, conception d'un lab OT/IT de sécurité industrielle.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">
+      <span class="dot"></span>
+      <strong>NISSA KARADAG</strong>
+      <span>// RAPPORT_STAGE_B2</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="entreprise.html">L'entreprise</a>
+      <a href="mission.html">La mission</a>
+      <a href="galerie.html">Galerie technique</a>
+      <a href="bilan.html">Bilan</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">● Rapport d'activité professionnelle — Bachelor 2</span>
+          <h1>Sécuriser un réseau <span class="accent">industriel</span>, avant qu'il ne soit attaqué.</h1>
+          <p class="lead">
+            Stage Assistante Cybersécurité chez GEEKTAFOOD : conception d'un environnement de lab
+            virtualisé OT/IT complet — automate vulnérable, accès distant VPN et SIEM — pour la
+            formation « Sécurité des Systèmes Industriels », avec des scénarios pensés pour les
+            enjeux d'un grand acteur de l'énergie.
+          </p>
+          <div class="hero-actions">
+            <a href="mission.html" class="btn btn-primary">Voir la mission technique →</a>
+            <a href="galerie.html" class="btn btn-ghost">Galerie des manipulations</a>
+          </div>
+
+          <div class="stat-strip">
+            <div class="stat"><div class="n">6</div><div class="l">Semaines de stage</div></div>
+            <div class="stat"><div class="n">5</div><div class="l">Machines virtuelles déployées</div></div>
+            <div class="stat"><div class="n">62h</div><div class="l">Heures de stage effectuées</div></div>
+            <div class="stat"><div class="n">1</div><div class="l">Présentation Portes Ouvertes</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span>SSI_LAB_VIRTUAL // architecture réelle</span>
+            <div class="lights"><span></span><span></span><span style="background:var(--ok)"></span></div>
+          </div>
+          <div class="panel-body">
+            <!-- Schéma signature : architecture réelle du lab (5 VM, 2 environnements) -->
+            <svg class="schematic" viewBox="0 0 480 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma de l'architecture du lab : réseau OT isolé à trois machines, plus VPN et SIEM">
+
+              <!-- === Bloc 1 : réseau OT isolé === -->
+              <text x="20" y="18" class="node-sub" style="fill:var(--cyan)">RÉSEAU OT ISOLÉ — ot-net</text>
+
+              <path class="line-active" d="M 90 88 L 90 150" />
+              <path class="line-active" d="M 240 108 L 240 150" />
+              <path class="line-active" d="M 390 88 L 390 150" />
+              <rect x="40" y="150" width="400" height="28" rx="6" class="node-box" />
+              <text x="240" y="168" text-anchor="middle" class="node-sub">ssi-network · sans accès Internet</text>
+
+              <!-- KALI -->
+              <rect x="10" y="30" width="160" height="58" rx="8" class="node-box" stroke="var(--alert)" />
+              <circle cx="26" cy="46" r="4" class="led led-alert" />
+              <text x="38" y="50" class="node-title">KALI — .10</text>
+              <text x="22" y="66" class="node-sub">Nmap</text>
+              <text x="22" y="78" class="node-sub">poste attaquant</text>
+
+              <!-- LAB_SAFE -->
+              <rect x="160" y="50" width="160" height="58" rx="8" class="node-box" stroke="var(--amber)" />
+              <circle cx="176" cy="66" r="4" class="led led-warn" />
+              <text x="188" y="70" class="node-title">LAB_SAFE — .20</text>
+              <text x="172" y="86" class="node-sub">Conpot · Modbus/TCP</text>
+              <text x="172" y="98" class="node-sub">victime OT simulée</text>
+
+              <!-- FORENSICK -->
+              <rect x="310" y="30" width="160" height="58" rx="8" class="node-box" />
+              <circle cx="326" cy="46" r="4" class="led led-ok" />
+              <text x="338" y="50" class="node-title">FORENSICK — .30</text>
+              <text x="322" y="66" class="node-sub">Wireshark · tcpdump</text>
+              <text x="322" y="78" class="node-sub">analyse réseau</text>
+
+              <!-- === Bloc 2 : accès distant + SIEM (VM séparées) === -->
+              <text x="20" y="212" class="node-sub" style="fill:var(--cyan)">ACCÈS DISTANT &amp; SUPERVISION — VM dédiées</text>
+
+              <path class="line-active" d="M 130 260 L 130 300" />
+              <path class="line-active" d="M 350 260 L 350 300" />
+              <path class="line" d="M 130 330 L 350 330" />
+
+              <!-- VPN / ESP32 -->
+              <rect x="40" y="220" width="180" height="66" rx="8" class="node-box" stroke="var(--cyan)" />
+              <circle cx="58" cy="238" r="4" class="led led-ok" />
+              <text x="72" y="242" class="node-title">VM ESP32 — ADMIN</text>
+              <text x="54" y="260" class="node-sub">Tunnel VPN WireGuard chiffré</text>
+              <text x="54" y="274" class="node-sub">MQTT/MQTTS · SSH durci</text>
+
+              <!-- SIEM -->
+              <rect x="260" y="220" width="180" height="66" rx="8" class="node-box" stroke="var(--cyan)" />
+              <circle cx="278" cy="238" r="4" class="led led-ok" />
+              <text x="292" y="242" class="node-title">VM WAZUH — SIEM</text>
+              <text x="274" y="260" class="node-sub">Wazuh · Graylog · Grafana</text>
+              <text x="274" y="274" class="node-sub">détection &amp; alerting</text>
+
+              <rect x="90" y="330" width="300" height="26" rx="6" class="node-box" />
+              <text x="240" y="347" text-anchor="middle" class="node-sub">accès admin chiffré + centralisation des logs</text>
+
+              <!-- note bas -->
+              <text x="20" y="400" class="node-sub" style="fill:var(--text-faint)">Total : 5 machines virtuelles réparties</text>
+              <text x="20" y="416" class="node-sub" style="fill:var(--text-faint)">sur ces deux environnements de lab.</text>
+            </svg>
+            <p class="figure-note">Environnement OT isolé (attaque / détection) + environnement dédié à l'accès distant sécurisé (VPN) et à la supervision (SIEM).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ APERÇU CADRE ============ -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">01 — Cadre général</span>
+        <h2>Un stage court, un livrable dense.</h2>
+        <p>Six semaines à temps partiel, une mission unique et cadrée : rendre autonome un environnement
+        pédagogique complet de sécurité industrielle, sans aucune dépendance matérielle.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">Structure</span>
+          <h3>GEEKTAFOOD</h3>
+          <p>Structure animée par Jérémie Einhorny, mon maître de stage, autour de la formation en
+          sécurité informatique et industrielle.</p>
+          <div class="kv"><span class="chip">Serris (77)</span><span class="chip">Formation SSI</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Poste</span>
+          <h3>Assistante cybersécurité</h3>
+          <p>En charge de la construction technique du lab : virtualisation, accès distant chiffré
+          (VPN), durcissement système, supervision et scénarios d'attaque/détection.</p>
+          <div class="kv"><span class="chip">OT/IT</span><span class="chip">VPN</span><span class="chip">SIEM</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Contexte client</span>
+          <h3>Secteur de l'énergie</h3>
+          <p>Les scénarios pédagogiques sont conçus pour coller aux enjeux d'un grand exploitant
+          d'infrastructures gazières, à la manière d'un EDF ou d'un Engie.</p>
+          <div class="kv"><span class="chip">Automates industriels</span><span class="chip">Modbus/TCP</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ COMPETENCES APERCU ============ -->
+  <section>
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="section-tag">02 — Compétences mobilisées</span>
+          <h2 style="margin-bottom:22px;">De la virtualisation à la réponse à incident.</h2>
+
+          <div class="skill">
+            <div class="skill-top"><span class="name">Durcissement système &amp; réseau (Linux, SSH, VPN)</span><span class="lvl">avancé</span></div>
+            <div class="bar"><span style="width:88%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-top"><span class="name">Protocoles industriels (Modbus/TCP)</span><span class="lvl">opérationnel</span></div>
+            <div class="bar"><span style="width:75%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-top"><span class="name">Supervision &amp; SIEM (Wazuh, Graylog, Grafana)</span><span class="lvl">opérationnel</span></div>
+            <div class="bar"><span style="width:80%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-top"><span class="name">Tests d'intrusion contrôlés (Kali, Nmap)</span><span class="lvl">initiation solide</span></div>
+            <div class="bar"><span style="width:65%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-top"><span class="name">Documentation &amp; méthodologie de test</span><span class="lvl">avancé</span></div>
+            <div class="bar"><span style="width:90%"></span></div>
+          </div>
+
+          <a href="mission.html" class="btn btn-ghost" style="margin-top:18px;">Détail des missions →</a>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span>journal.log</span>
+            <div class="lights"><span></span><span></span><span style="background:var(--ok)"></span></div>
+          </div>
+          <div class="panel-body">
+            <div class="log-block">
+<span class="muted">[29/10]</span> init réseau interne <span class="ok">ot-net</span> — Kali / Lab_Safe / Forensick<br>
+<span class="muted">[03/11]</span> Conpot honeypot + Modbus/TCP :502 — <span class="ok">OK</span><br>
+<span class="muted">[13/11]</span> <strong>WireGuard — tunnel VPN admin chiffré ESP32 — <span class="ok">actif</span></strong><br>
+<span class="muted">[16/11]</span> MQTT/MQTTS sécurisé + durcissement SSH / UFW — <span class="ok">appliqué</span><br>
+<span class="muted">[24/11]</span> scan nmap modbus-discover depuis Kali — <span class="warn">détecté</span><br>
+<span class="muted">[27/11]</span> injection DoS Modbus — alerte <span class="alert">Wazuh déclenchée</span><br>
+<span class="muted">[02/12]</span> tableau de bord Grafana exporté — <span class="ok">livré</span><br>
+<span class="muted">[10/12]</span> dossier formateur finalisé — <span class="ok">clôture stage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ TEASER BILAN ============ -->
+  <section>
+    <div class="container">
+      <div class="panel" style="padding:36px;">
+        <div class="split" style="align-items:center;">
+          <div>
+            <span class="section-tag">03 — En bref</span>
+            <p class="quote-block">
+              « Le vrai apprentissage n'a pas été technique en premier lieu : c'est de trouver
+              rapidement la bonne posture professionnelle, pour ensuite pouvoir livrer un travail
+              exigeant sans être freinée par le doute. »
+            </p>
+          </div>
+          <div>
+            <p style="color:var(--text-muted); font-size:15px; margin-bottom:16px;">
+              Une partie du lab a été présentée en public lors des Portes Ouvertes d'Ynov Campus
+              Nanterre — un exercice de vulgarisation qui a confirmé mon envie de poursuivre en
+              cybersécurité, en particulier sur les systèmes industriels.
+            </p>
+            <a href="bilan.html" class="btn btn-primary">Lire le bilan complet →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="fmono">© 2025/2026 — Nissa Karadag · Bachelor 2 Informatique · Ynov Campus</span>
+    <span class="fmono">GEEKTAFOOD — Serris (77) — Stage 29/10 → 10/12/2025</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

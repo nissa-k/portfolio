@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie technique — Preuves de réalisation | Nissa Karadag</title>
+<meta name="description" content="Captures d'écran des manipulations réalisées pendant le stage : Wazuh, Graylog, Wireshark, Kali Linux, durcissement SSH.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">
+      <span class="dot"></span>
+      <strong>NISSA KARADAG</strong>
+      <span>// RAPPORT_STAGE_B2</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="entreprise.html">L'entreprise</a>
+      <a href="mission.html">La mission</a>
+      <a href="galerie.html" class="active">Galerie technique</a>
+      <a href="bilan.html">Bilan</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Galerie technique</div>
+      <span class="section-tag">Preuves de réalisation</span>
+      <h1>Ce que les captures d'écran racontent.</h1>
+      <p>Une sélection de captures issues des livrables produits pendant le stage — chacune
+      documente une étape réelle du lab, de la configuration système à la détection d'attaque.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="grid-3">
+
+        <div class="gallery-item">
+          <div class="shot"><img src="assets/img/wireshark-modbus-scan.png" alt="Capture Wireshark montrant un scan TCP sur le port Modbus 5020"></div>
+          <div class="cap">
+            <span class="tag">Analyse réseau</span>
+            <h4>Signature d'un scan Nmap dans Wireshark</h4>
+            <p>Capture <code>modbus_attack.pcap</code> : multiples paquets SYN depuis des ports
+            source différents, connexions courtes (RST/FIN) — signature typique d'un scan TCP
+            contre le service Modbus (port 5020).</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="shot"><img src="assets/img/graylog-logs-test.png" alt="Interface Graylog affichant les logs de test envoyés depuis Wazuh"></div>
+          <div class="cap">
+            <span class="tag">SIEM</span>
+            <h4>Réception des logs dans Graylog</h4>
+            <p>Vérification de bout en bout de la chaîne de logs : conteneurs Docker (Graylog,
+            MongoDB, OpenSearch) opérationnels, message de test transmis avec succès depuis la VM
+            Wazuh.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="shot"><img src="assets/img/graylog-input-esp32.png" alt="Configuration d'un input Syslog UDP pour l'agent ESP32 dans Graylog"></div>
+          <div class="cap">
+            <span class="tag">SIEM</span>
+            <h4>Input Syslog dédié à l'ESP32</h4>
+            <p>Configuration d'un input Syslog UDP (port 1514) pour centraliser les événements de
+            l'ESP32 dans Graylog, avec suivi du débit et des métriques réseau en temps réel.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="shot"><img src="assets/img/kali-modbus-script.png" alt="Script Python de lecture Modbus TCP exécuté depuis Kali Linux"></div>
+          <div class="cap">
+            <span class="tag">Test d'intrusion</span>
+            <h4>Script de lecture Modbus (Kali)</h4>
+            <p>Script Python (<code>pymodbus</code>) exécuté depuis la VM Kali pour interroger
+            directement l'automate simulé et valider l'exposition du service avant test d'attaque.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="shot"><img src="assets/img/sshd-hardening.png" alt="Fichier de configuration sshd_config durci"></div>
+          <div class="cap">
+            <span class="tag">Durcissement</span>
+            <h4>Configuration SSH durcie</h4>
+            <p><code>PermitRootLogin no</code>, <code>MaxAuthTries 3</code>, authentification par
+            clé — application des bonnes pratiques serveur sur l'ensemble des VM du lab.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="shot"><img src="assets/img/wireguard-tunnel.png" alt="Tunnel WireGuard actif entre le poste d'administration et la VM ESP32"></div>
+          <div class="cap">
+            <span class="tag">Accès distant</span>
+            <h4>Tunnel WireGuard actif</h4>
+            <p>Connexion administrateur établie via VPN chiffré vers la VM ESP32, sans exposition
+            directe de SSH sur le réseau — accès validé et transfert de données confirmé.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <div class="container">
+      <div class="panel" style="padding:32px;">
+        <div class="split" style="align-items:center;">
+          <div>
+            <span class="section-tag">Restitution publique</span>
+            <h2 style="margin-bottom:14px; font-size:22px;">Portes Ouvertes — Ynov Campus Nanterre</h2>
+            <p style="color:var(--text-muted); font-size:15px;">
+              Une partie de ces travaux — la démonstration de l'attaque Modbus et sa détection
+              dans Wazuh — a été présentée en conditions réelles lors des Portes Ouvertes d'Ynov
+              Campus Nanterre, devant un public de futurs étudiants et de familles.
+            </p>
+          </div>
+          <div>
+            <p style="color:var(--text-muted); font-size:15px;">
+              Cet exercice de vulgarisation a demandé un travail différent de la manipulation
+              technique pure : reformuler un scénario d'attaque/détection en quelques minutes,
+              pour un public non expert, sans perdre la rigueur du contenu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="fmono">© 2025/2026 — Nissa Karadag · Bachelor 2 Informatique · Ynov Campus</span>
+    <span class="fmono">GEEKTAFOOD — Serris (77) — Stage 29/10 → 10/12/2025</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

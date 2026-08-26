@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La mission — Lab OT/IT | Nissa Karadag</title>
+<meta name="description" content="Détail technique de la mission : architecture, outils, méthodes et étapes du lab de sécurité industrielle.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">
+      <span class="dot"></span>
+      <strong>NISSA KARADAG</strong>
+      <span>// RAPPORT_STAGE_B2</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="entreprise.html">L'entreprise</a>
+      <a href="mission.html" class="active">La mission</a>
+      <a href="galerie.html">Galerie technique</a>
+      <a href="bilan.html">Bilan</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / La mission</div>
+      <span class="section-tag">Compétences mises en œuvre</span>
+      <h1>Construire un réseau industriel qui n'existe que dans une machine hôte.</h1>
+      <p>Objectif : livrer à Jérémie Einhorny un environnement virtualisé prêt à l'emploi,
+      permettant de simuler un réseau OT/IT complet — automate, supervision, sécurité — sans
+      aucune dépendance matérielle, pour animer la formation « Sécurité des Systèmes Industriels ».</p>
+    </div>
+  </section>
+
+  <!-- ROLE / TASKS -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Rôle &amp; activités</span>
+        <h2>Un rôle à la fois technique et pédagogique.</h2>
+        <p>En tant qu'assistante cybersécurité, je n'exécutais pas une seule tâche répétée : chaque
+        semaine combinait installation système, sécurisation réseau, simulation d'attaque et
+        rédaction de documentation destinée à être réutilisée par le formateur.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">Infrastructure</span>
+          <h3>Virtualisation &amp; réseau</h3>
+          <p>Déploiement de 3 VM Ubuntu sous VirtualBox, interconnectées sur un réseau interne
+          isolé (« ssi-network »), avec adressage IP statique et documentation de la configuration.</p>
+          <div class="kv"><span class="chip">VirtualBox</span><span class="chip">Ubuntu 22.04</span><span class="chip">Réseau interne</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Accès distant</span>
+          <h3>Sécurisation des accès (ESP32)</h3>
+          <p>Mise en place d'un accès distant sécurisé sur microcontrôleur ESP32 via MQTT/MQTTS,
+          puis d'un tunnel VPN WireGuard pour l'administration, sans exposer SSH ni MQTT sur le
+          réseau local.</p>
+          <div class="kv"><span class="chip">WireGuard</span><span class="chip">MQTT/TLS</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Durcissement</span>
+          <h3>Hardening système</h3>
+          <p>Mises à jour automatiques, gestion des utilisateurs et des droits, configuration SSH
+          (PermitRootLogin no, MaxAuthTries), pare-feu UFW et journalisation.</p>
+          <div class="kv"><span class="chip">SSHD</span><span class="chip">UFW</span><span class="chip">Logs</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Automate</span>
+          <h3>Simulation d'un PLC (VM1)</h3>
+          <p>Installation d'OpenPLC Editor et Runtime, création d'un programme simple (LED
+          virtuelle), configuration du serveur Modbus/TCP sur le port 502.</p>
+          <div class="kv"><span class="chip">OpenPLC</span><span class="chip">Modbus/TCP</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Analyse réseau</span>
+          <h3>Poste forensic (VM Forensick)</h3>
+          <p>Installation de tcpdump, Wireshark et tshark, capture ciblée du trafic Modbus
+          (<code>tcpdump -i enp0s8 -w modbus_attack.pcap port 5020</code>) puis analyse détaillée
+          des échanges pour caractériser un scan réseau.</p>
+          <div class="kv"><span class="chip">Wireshark</span><span class="chip">tcpdump</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Sécurité</span>
+          <h3>SIEM &amp; monitoring (VM dédiée)</h3>
+          <p>Déploiement de Wazuh Manager/Dashboard sur une VM séparée, agents connectés (dont
+          l'ESP32 via Syslog), connexion à Graylog, tableaux de bord Grafana et scans Nmap pour
+          valider la détection.</p>
+          <div class="kv"><span class="chip">Wazuh</span><span class="chip">Graylog</span><span class="chip">Grafana</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ARCHITECTURE -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Architecture livrée</span>
+        <h2>Trois machines, trois métiers, un seul poste hôte.</h2>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <span>architecture.svg — vue détaillée (5 VM)</span>
+          <div class="lights"><span></span><span></span><span style="background:var(--ok)"></span></div>
+        </div>
+        <div class="panel-body">
+          <svg class="schematic" viewBox="0 0 940 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture détaillée du lab : trois machines sur le réseau OT isolé, et deux machines dédiées à l'accès distant et à la supervision">
+
+            <!-- bandeau réseau OT -->
+            <text x="30" y="18" class="node-sub" style="fill:var(--cyan)">RÉSEAU OT ISOLÉ — ot-net (VirtualBox, mode Internal Network)</text>
+            <path class="line-active" d="M 130 90 L 130 150" />
+            <path class="line-active" d="M 450 100 L 450 150" />
+            <path class="line-active" d="M 770 90 L 770 150" />
+            <rect x="40" y="150" width="860" height="26" rx="6" class="node-box" />
+            <text x="470" y="167" text-anchor="middle" class="node-sub">ot-net — aucune sortie Internet</text>
+
+            <rect x="30" y="26" width="200" height="74" rx="8" class="node-box" stroke="var(--alert)" />
+            <circle cx="48" cy="44" r="4" class="led led-alert" />
+            <text x="62" y="48" class="node-title">Kali — 192.168.100.10</text>
+            <text x="44" y="66" class="node-sub">Nmap</text>
+            <text x="44" y="80" class="node-sub">poste attaquant contrôlé</text>
+            <text x="44" y="94" class="node-sub">nmap --script modbus-discover</text>
+
+            <rect x="350" y="36" width="200" height="74" rx="8" class="node-box" stroke="var(--amber)" />
+            <circle cx="368" cy="54" r="4" class="led led-warn" />
+            <text x="382" y="58" class="node-title">Lab_Safe — 192.168.100.20</text>
+            <text x="364" y="76" class="node-sub">Conpot (honeypot Modbus)</text>
+            <text x="364" y="90" class="node-sub">service industriel vulnérable</text>
+            <text x="364" y="104" class="node-sub">port 502 / 5020</text>
+
+            <rect x="670" y="26" width="200" height="74" rx="8" class="node-box" />
+            <circle cx="688" cy="44" r="4" class="led led-ok" />
+            <text x="702" y="48" class="node-title">Forensick — 192.168.100.30</text>
+            <text x="684" y="66" class="node-sub">Wireshark · tcpdump</text>
+            <text x="684" y="80" class="node-sub">capture &amp; analyse réseau</text>
+            <text x="684" y="94" class="node-sub">.pcap annoté</text>
+
+            <!-- bandeau accès distant + siem -->
+            <text x="30" y="204" class="node-sub" style="fill:var(--cyan)">ACCÈS DISTANT &amp; SUPERVISION — machines dédiées, hors réseau OT</text>
+            <path class="line-active" d="M 250 260 L 250 296" />
+            <path class="line-active" d="M 650 260 L 650 296" />
+            <path class="line" d="M 250 296 L 650 296" />
+
+            <rect x="130" y="214" width="240" height="46" rx="8" class="node-box" stroke="var(--cyan)" />
+            <circle cx="148" cy="232" r="4" class="led led-ok" />
+            <text x="162" y="236" class="node-title">VM ESP32 — accès admin</text>
+            <text x="144" y="252" class="node-sub">Tunnel VPN WireGuard chiffré · SSH durci · MQTT/MQTTS</text>
+
+            <rect x="530" y="214" width="240" height="46" rx="8" class="node-box" stroke="var(--cyan)" />
+            <circle cx="548" cy="232" r="4" class="led led-ok" />
+            <text x="562" y="236" class="node-title">VM Wazuh — SIEM</text>
+            <text x="544" y="252" class="node-sub">Wazuh · Graylog · Grafana · alerting</text>
+
+            <rect x="290" y="296" width="320" height="24" rx="6" class="node-box" />
+            <text x="450" y="312" text-anchor="middle" class="node-sub">accès chiffré + centralisation des logs</text>
+          </svg>
+          <p class="figure-note">
+            Adressage réel utilisé pendant les ateliers (extrait de la documentation de configuration
+            du lab) : 3 VM sur le réseau OT isolé, et 2 VM dédiées à l'accès distant sécurisé et à
+            la supervision — soit 5 machines virtuelles au total.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- METHODE / SCENARIO ATTAQUE -->
+  <section>
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="section-tag">Méthode</span>
+          <h2 style="margin-bottom:16px;">Un scénario complet : automate → attaque → détection.</h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <span class="date">Étape 1</span>
+              <h4>Cartographie &amp; matrice de flux</h4>
+              <p>Identification des échanges attendus entre le service industriel simulé et le
+              poste de sécurité, pour définir ce qu'un trafic « normal » doit ressembler.</p>
+            </div>
+            <div class="tl-item">
+              <span class="date">Étape 2</span>
+              <h4>Attaque contrôlée depuis Kali</h4>
+              <p>Scan de découverte Modbus (<code>nmap --script modbus-discover -p 502</code>) puis
+              simulation d'un déni de service ciblant le protocole Modbus, dénué de mécanismes de
+              sécurité natifs.</p>
+            </div>
+            <div class="tl-item">
+              <span class="date">Étape 3</span>
+              <h4>Capture &amp; analyse réseau</h4>
+              <p>Capture tcpdump/Wireshark du trafic, identification de la signature d'un scan TCP
+              (multiples SYN, ports source variables, connexions courtes RST/FIN).</p>
+            </div>
+            <div class="tl-item">
+              <span class="date">Étape 4</span>
+              <h4>Détection &amp; visualisation</h4>
+              <p>Vérification que l'anomalie remonte bien dans Wazuh, exploitation des données dans
+              Graylog et Grafana, rédaction du rapport d'alertes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span>vulnerabilites_ot.md</span>
+            <div class="lights"><span></span><span></span><span style="background:var(--amber)"></span></div>
+          </div>
+          <div class="panel-body">
+            <h3 style="margin-bottom:12px; font-size:16px;">Ce que l'analyse de vulnérabilités a mis en évidence</h3>
+            <p style="color:var(--text-muted); font-size:14.5px; margin-bottom:14px;">
+              En parallèle des manipulations, j'ai rédigé une analyse structurée des vulnérabilités
+              observées et des failles propres aux environnements OT industriels (protocoles non
+              chiffrés, absence d'authentification native, difficulté de mise à jour des équipements).
+            </p>
+            <div class="kv">
+              <span class="chip">Absence de chiffrement Modbus</span>
+              <span class="chip">Équipements peu maintenables</span>
+              <span class="chip">Surface d'exposition réseau</span>
+              <span class="chip">Priorisation des correctifs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- OUTILS / QCM validation -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Outillage complet</span>
+        <h2>Boîte à outils utilisée sur l'ensemble de la mission.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Virtualisation &amp; système</h3>
+          <div class="kv">
+            <span class="chip">VirtualBox</span><span class="chip">Ubuntu 22.04</span>
+            <span class="chip">Docker</span><span class="chip">systemd / UFW</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>OT / Automatisme</h3>
+          <div class="kv">
+            <span class="chip">Conpot (honeypot)</span><span class="chip">Modbus/TCP</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Sécurité &amp; supervision</h3>
+          <div class="kv">
+            <span class="chip">Wazuh</span><span class="chip">Graylog</span>
+            <span class="chip">Grafana</span><span class="chip">Wireshark / tcpdump</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tests d'intrusion</h3>
+          <div class="kv">
+            <span class="chip">Kali Linux</span><span class="chip">Nmap</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Accès &amp; chiffrement</h3>
+          <div class="kv">
+            <span class="chip">WireGuard</span><span class="chip">MQTT / MQTTS</span>
+            <span class="chip">SSH durci</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Documentation</h3>
+          <div class="kv">
+            <span class="chip">Guides pas-à-pas PDF</span><span class="chip">README structurés</span>
+            <span class="chip">QCM de validation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- AUTONOMIE / CURIOSITE -->
+  <section>
+    <div class="container">
+      <div class="panel" style="padding:32px;">
+        <span class="section-tag">Autonomie &amp; curiosité</span>
+        <h2 style="margin-bottom:14px; font-size:22px;">Résoudre seule, documenter pour les autres.</h2>
+        <p style="color:var(--text-muted); font-size:15px; max-width:74ch; margin-bottom:18px;">
+          Une partie du travail réel a consisté à déboguer des blocages non prévus au cahier des
+          charges : conteneurs Graylog qui redémarraient en boucle faute de <code>vm.max_map_count</code>
+          correctement réglé, service Mosquitto qui refusait de démarrer à cause de droits fichiers
+          mal attribués, conflits de ports sur le service Conpot, ou encore un tunnel WireGuard à
+          reconfigurer après clonage de VM (clés et endpoint à régénérer). À chaque fois, j'ai
+          isolé la cause, corrigé, puis noté la solution dans un journal de problèmes partagé —
+          pour que le formateur n'ait pas à refaire ce travail d'investigation.
+        </p>
+        <div class="log-block">
+<span class="muted">$</span> docker compose up -d<br>
+<span class="alert">opensearch : restarting (137) — mémoire insuffisante</span><br>
+<span class="muted">$</span> sudo sysctl -w vm.max_map_count=262144<br>
+<span class="muted">$</span> docker compose down &amp;&amp; docker compose up -d<br>
+<span class="ok">opensearch : healthy — graylog opérationnel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="fmono">© 2025/2026 — Nissa Karadag · Bachelor 2 Informatique · Ynov Campus</span>
+    <span class="fmono">GEEKTAFOOD — Serris (77) — Stage 29/10 → 10/12/2025</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
