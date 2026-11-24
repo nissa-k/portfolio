@@ -388,3 +388,11 @@ footer p{ font-size:13px; color:var(--ink-faint); margin:0; }
 .cs-label{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); min-width:120px; }
 @media (max-width:560px){ .cs-label{ min-width:100%; } }
 @media (max-width:1400px) and (min-width:1121px){ .brand-role{ display:none; } .nav{ gap:14px; } }
+
+@media (max-width:880px){ #alternance .project-card{ grid-template-columns:1fr !important; gap:14px !important; } }
+
+.tl-cols{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+.tl-col-title{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 18px; }
+.tl-cols .tl-item{ padding-bottom:22px; }
+.tl-cols .tl-item h4{ font-size:17px; }
+@media (max-width:880px){ .tl-cols{ grid-template-columns:1fr; gap:32px; } }
