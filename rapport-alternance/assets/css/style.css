@@ -546,3 +546,9 @@ h2{ line-height:1.2; }
   .mdet-list button.on{ border-left-color:rgba(120,170,230,.3); border-bottom:2px solid var(--lime); }
   .mdet-panel{ padding:24px 20px; min-height:0; }
 }
+
+/* puces façon Info Concept : point vert, texte clair, filets */
+.mdet-panel ul{ list-style:none; padding-left:0 !important; }
+.mdet-panel li{ position:relative; margin:0; padding:13px 0 13px 30px; color:#f2f6fc; font-weight:500; font-size:16.5px; border-bottom:1px solid rgba(120,170,230,.16); }
+.mdet-panel li:last-child{ border-bottom:0; }
+.mdet-panel li::before{ content:""; position:absolute; left:4px; top:1.15em; width:11px; height:11px; border-radius:50%; background:var(--lime); box-shadow:0 0 10px rgba(166,206,31,.55); }
