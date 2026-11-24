@@ -396,3 +396,5 @@ footer p{ font-size:13px; color:var(--ink-faint); margin:0; }
 .tl-cols .tl-item{ padding-bottom:22px; }
 .tl-cols .tl-item h4{ font-size:17px; }
 @media (max-width:880px){ .tl-cols{ grid-template-columns:1fr; gap:32px; } }
+
+@media (max-width:880px){ #apport .deliv-grid{ grid-template-columns:1fr !important; } }
