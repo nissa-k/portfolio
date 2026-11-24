@@ -457,3 +457,11 @@ a.chip:hover{ border-color:var(--lime); color:var(--lime); }
 .brand span:last-child{ white-space:nowrap; }
 h2{ line-height:1.2; }
 .topbar-inner{ gap:16px; }
+
+/* logo Info Concept */
+.brand-logo{ height:30px; width:auto; display:block; }
+.title-logo{ height:1.05em; width:auto; vertical-align:-0.12em; margin-left:.15em; }
+
+/* logo Info Concept */
+.brand-logo{ height:30px; width:auto; display:block; }
+.title-logo{ height:1.05em; width:auto; vertical-align:-0.12em; margin-left:.15em; }
