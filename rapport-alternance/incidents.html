@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nissa Karadag — Rapport d'alternance · Incidents & diagnostic</title>
+<meta name="description" content="Deux incidents réels d'alternance : boucle réseau et ports défaillants, changement d'IP publique.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">
+      <span class="dot"></span>
+      <strong>NISSA KARADAG</strong>
+      <span>// RAPPORT_ALTERNANCE</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="missions.html">Les missions</a>
+      <a href="incidents.html" class="active">Incidents & diagnostic</a>
+      <a href="bilan.html">Lien avec la cyber</a>
+      <a href="../index.html#alternance">← Portfolio</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Incidents &amp; diagnostic</div>
+      <span class="section-tag">Pannes réelles</span>
+      <h1>Quand le réseau tombe, il faut savoir par où commencer.</h1>
+      <p>Deux incidents vécus en alternance et ce qu'ils illustrent.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Incident 1</span>
+        <h2>Une baie informatique : une boucle et des ports défaillants.</h2>
+        <p>Lors d'une intervention sur une baie informatique, deux problèmes distincts étaient présents : une boucle réseau à supprimer, et des ports de switch qui ne fonctionnaient pas. Les équipements branchés sur ces ports, dont des caisses, n'étaient plus sur le réseau et ne répondaient pas au ping.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">Le problème des ports</span>
+          <h3>Appareil hors réseau</h3>
+          <p>Un équipement branché sur un port défaillant n'a aucun accès au réseau : aucun message n'entre ni ne sort, donc aucun ping ne passe, quelle que soit l'activité du reste du réseau.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Le problème de la boucle</span>
+          <h3>Tempête de broadcast</h3>
+          <p>Un câble en trop entre deux switchs, ou un câble qui revient sur le même switch, fait tourner indéfiniment les messages. Chaque switch recopie les broadcasts sur tous ses ports : le nombre de copies double à chaque tour jusqu'à saturer les liens.</p>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:20px; padding:28px;">
+        <span class="section-tag">Pourquoi distinguer les deux</span>
+        <p style="color:var(--text-muted); font-size:15px; max-width:80ch; margin-top:10px;">
+          Un appareil qui ne répond pas au ping peut avoir un port mort, ou un réseau saturé par une boucle. Dans le second cas, le ping peut passer par moments, avec un temps de réponse qui grimpe et des pertes. Regarder l'état du port et l'activité des voyants aide à trancher. Pour éviter les boucles, on active le STP (spanning tree) sur les switchs, qui coupe automatiquement un des liens redondants.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Incident 2</span>
+        <h2>Une panne à la centrale : changer l'IP publique de tout le réseau.</h2>
+        <p>Après une panne de réseau à la centrale, l'adresse IP publique a changé et tout ce qui en dépendait a dû être modifié sur les filiales.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><span class="tag">Constat</span><h3>Une adresse qui change</h3><p>Tout ce qui pointait vers l'ancienne IP publique cessait de fonctionner : accès distants, redirections, services exposés.</p></div>
+        <div class="card"><span class="tag">Action</span><h3>Reprendre site par site</h3><p>Mise à jour des configurations sur le siège puis sur chaque filiale, pour rétablir les accès.</p></div>
+        <div class="card"><span class="tag">Ce que ça illustre</span><h3>Dépendances cachées</h3><p>Une IP publique ou une redirection de ports oubliée peut casser un service ou, au contraire, exposer un accès qu'on croyait fermé.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="fmono">© 2026 — Nissa Karadag · Bachelor 3 Cybersécurité · Ynov Campus</span>
+    <span class="fmono">Info Concept — Alternance depuis le 1er septembre 2026</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
