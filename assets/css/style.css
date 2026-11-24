@@ -97,11 +97,12 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   font-family:var(--font-display); font-weight:600; font-size:15px;
 }
 .brand-name{ font-family:var(--font-display); font-weight:600; font-size:16.5px; }
+.brand{ white-space:nowrap; }
 .brand-role{ font-family:var(--font-mono); font-size:11px; color:var(--ink-faint); letter-spacing:.04em; }
 
-.nav{ display:flex; align-items:center; gap:24px; }
+.nav{ display:flex; align-items:center; gap:18px; }
 .nav a{
-  font-size:14.5px; color:var(--ink-soft); font-weight:500;
+  font-size:14px; color:var(--ink-soft); font-weight:500; white-space:nowrap;
   padding:6px 2px; border-bottom:1px solid transparent;
   transition:color .15s, border-color .15s;
 }
@@ -118,7 +119,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 .btn-primary:hover{ background:var(--pine-deep); box-shadow:var(--shadow-hover); transform:translateY(-1px); }
 .btn-ghost{ background:transparent; border-color:var(--line); color:var(--ink); }
 .btn-ghost:hover{ border-color:var(--pine); color:var(--pine); transform:translateY(-1px); }
-.btn-sm{ padding:8px 15px; font-size:13.5px; }
+.btn-sm{ padding:8px 15px; font-size:13.5px; white-space:nowrap; }
 
 .nav-toggle{
   display:none; background:none; border:1px solid var(--line);
@@ -269,15 +270,17 @@ section.alt{ background:var(--paper-alt); }
 .tp-card .link-dl:hover{ color:var(--gold); }
 
 /* ============ CYBERWARROOM ============ */
+#cyberwarroom .spotlight{ margin-bottom:36px; }
+#cyberwarroom .deliv-grid{ margin-bottom:8px; }
 .cwr-sub{ font-family:var(--font-mono); font-size:12px; color:var(--gold-tint); letter-spacing:.04em; margin:-6px 0 18px; }
 .arch-card{
-  margin-top:26px; background:var(--card); border:1px solid var(--line);
+  margin-top:0; background:var(--card); border:1px solid var(--line);
   border-radius:var(--radius); box-shadow:var(--shadow); padding:26px 26px 18px;
 }
 .arch-card h3{ font-size:19px; margin-bottom:4px; }
 .arch-card > p{ font-size:14.5px; margin-bottom:14px; max-width:78ch; }
 .arch-scroll{ overflow-x:auto; }
-.arch-scroll svg{ display:block; width:100%; min-width:700px; height:auto; }
+.arch-scroll svg{ display:block; width:100%; min-width:680px; height:auto; }
 .arch-scroll text{ font-family:var(--font-mono); fill:var(--ink); }
 .arch-note{ font-size:12.5px; color:var(--ink-faint); margin:10px 0 0; }
 
@@ -332,7 +335,7 @@ footer{ padding:32px 0 48px; text-align:center; }
 footer p{ font-size:13px; color:var(--ink-faint); margin:0; }
 
 /* ============ RESPONSIVE ============ */
-@media (max-width: 880px){
+@media (max-width: 1060px){
   .nav{ display:none; }
   .nav.open{
     display:flex; flex-direction:column; align-items:flex-start; gap:4px;
@@ -340,6 +343,10 @@ footer p{ font-size:13px; color:var(--ink-faint); margin:0; }
     background:var(--paper); border-bottom:1px solid var(--line); box-shadow:var(--shadow);
   }
   .nav.open a{ padding:10px 0; width:100%; font-size:16px; }
+  .nav-toggle{ display:block; }
+}
+@media (max-width: 880px){
+  .nav{ display:none; }
   .topbar{ position:sticky; }
   .nav-toggle{ display:block; }
   .hero-grid, .about-grid, .spotlight, .contact-wrap{ grid-template-columns:1fr; }

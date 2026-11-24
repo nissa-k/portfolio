@@ -11,7 +11,7 @@
 <meta property="og:title" content="Nissa Karadag — Portfolio Cybersécurité & Réseaux">
 <meta property="og:description" content="Cheffe de projet CyberWarRoom (Ynov), alternante admin réseau/systèmes/BDD, B3 Cybersécurité. Recherche une alternance en Master 1.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
 
@@ -30,6 +30,7 @@
       <a href="#cyberwarroom">CyberWarRoom</a>
       <a href="#projets">Projets</a>
       <a href="#competences">Compétences</a>
+      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="assets/cv/CV_Nissa_Karadag.pdf" class="btn btn-primary btn-sm" download>Télécharger le CV</a>
@@ -184,18 +185,16 @@
       <div class="spotlight">
         <div>
           <span class="eyebrow">Cheffe de projet — laboratoire national Ynov</span>
-          <h2>CyberWarRoom : défendre un salon piégé, preuves à l'appui</h2>
+          <h2>CyberWarRoom : défendre un salon piégé</h2>
           <p>
-            Je pilote CyberWarRoom, le laboratoire de cyberdéfense d'Ynov : un scénario d'attaque réaliste
-            (« Le stand piégé ») est rejoué sur un réseau de salon segmenté, que l'équipe protège et surveille avec
-            un SIEM complet jusqu'à la décision de la cellule de crise. Mon rôle : cadrer l'architecture, répartir ce qui
-            relève de l'infra et de la cyber, porter la procédure de bout en bout (12 phases) et valider chaque brique par des tests, avec une équipe de 13 personnes (en lien avec l'équipe infra).
+            Je pilote le laboratoire de cyberdéfense d'Ynov : un scénario d'attaque (« Le stand piégé ») rejoué sur un
+            réseau de salon segmenté, supervisé par un SIEM jusqu'à la décision de la cellule de crise.
+            Équipe de 13 personnes, en lien avec l'équipe infra.
           </p>
           <ul>
-            <li>Architecture à 7 VLAN, routage inter-VLAN et pare-feu en refus par défaut, accès distant par VPN WireGuard</li>
-            <li>SIEM Wazuh + sonde Suricata sur port miroir : 8 règles de détection rattachées à MITRE ATT&CK, dont une corrélation qui ouvre la cellule de crise</li>
-            <li>Site des alertes (front et back séparés) qui lit le SIEM en lecture seule, joignable depuis l'administration et le VPN uniquement</li>
-            <li>Maquette Packet Tracer testée : 6 ACL, 14 tests de connectivité, pannes diagnostiquées et documentées</li>
+            <li>Réseau à 7 VLAN, pare-feu en refus par défaut, VPN WireGuard</li>
+            <li>SIEM Wazuh + Suricata : 8 règles de détection MITRE ATT&CK et une corrélation qui ouvre la cellule de crise</li>
+            <li>Site des alertes (front / back) ; maquette Packet Tracer : 6 ACL, 14 tests de connectivité</li>
           </ul>
           <div class="spotlight-actions">
             <a href="assets/docs/CyberWarRoom-CR-Maquette-PacketTracer.pdf" class="btn btn-primary" download>Compte rendu de la maquette (PDF) →</a>
@@ -204,18 +203,16 @@
           </div>
         </div>
         <div class="spotlight-panel">
-          <div class="kv"><span>Rôle</span><b>Cheffe de projet · équipe de 13</b></div>
+          <div class="kv"><span>Rôle</span><b>Cheffe de projet</b></div>
           <div class="kv"><span>Cadre</span><b>Ynov · labo national</b></div>
           <div class="kv"><span>Statut</span><b>En cours · maquette validée</b></div>
           <div class="kv"><span>Socle</span><b>Cisco · Wazuh · Suricata</b></div>
-          <div class="kv"><span>Accès distant</span><b>WireGuard (UDP 51820)</b></div>
-          <div class="kv"><span>Compétence visée</span><b>BC03 — infrastructures</b></div>
         </div>
       </div>
 
       <div class="arch-card">
         <h3>Schéma de la maquette : sept VLAN, un seul point de passage</h3>
-        <p>Chaque VLAN client est isolé des autres et de l'administration. Le site des alertes suit le moindre privilège : le front ne parle qu'au back, et le back ne lit que le SIEM.</p>
+        <p>Les VLAN clients sont isolés ; le front ne parle qu'au back, et le back ne lit que le SIEM.</p>
         <div class="arch-scroll">
 <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="arch-t arch-d">
   <title id="arch-t">Architecture CyberWarRoom : 7 VLAN autour d'un pare-feu</title>
@@ -299,33 +296,33 @@
 </svg>
 
         </div>
-        <p class="arch-note">Schéma redessiné à partir de la maquette Cisco Packet Tracer (plan d'adressage 10.10.X.0/24).</p>
+        
       </div>
 
       <div class="deliv-grid">
         <div class="tp-card accent">
           <div class="meta">Réseau</div>
           <h4>Maquette réseau complète</h4>
-          <p>3 switchs, trunks 802.1Q, routage inter-VLAN en router-on-a-stick, DHCP par VLAN, wifi multi-SSID (visiteurs, presse) et IP fixes pour l'administration, le SIEM et les serveurs.</p>
+          <p>3 switchs, trunks 802.1Q, routage inter-VLAN, DHCP par VLAN et wifi multi-SSID.</p>
         </div>
         <div class="tp-card accent">
           <div class="meta">Sécurité</div>
           <h4>Cloisonnement par ACL, au plus juste</h4>
-          <p>Zones clientes isolées, administration seule à tout voir, serveurs web limités aux flux nécessaires. Les ACL Cisco étant sans état, les réponses légitimes sont autorisées explicitement.</p>
+          <p>Zones isolées, administration seule à tout voir, serveurs limités aux flux nécessaires.</p>
         </div>
         <div class="tp-card accent">
           <div class="meta">Détection</div>
           <h4>Règles D1 à D8 et corrélation</h4>
-          <p>Balise C2, trafic interdit, compte presse suspect, site web, VPN, équipement inconnu, source silencieuse : chaque règle porte sa technique MITRE ATT&CK et sa fiche d'enquête. La décision de couper reste humaine.</p>
+          <p>8 règles rattachées à MITRE ATT&CK, chacune avec sa fiche d'enquête. La décision de couper reste humaine.</p>
         </div>
         <div class="tp-card accent">
           <div class="meta">Méthode</div>
-          <h4>Chaque commande est expliquée et prouvée</h4>
-          <p>Pour chaque étape : la commande, ce qu'elle fait et pourquoi. Pannes traitées : VLAN oublié sur un trunk, retours de ping bloqués par une ACL, contrôleur wifi non supporté par l'outil de simulation.</p>
+          <h4>Méthode : tout est prouvé</h4>
+          <p>Chaque commande est expliquée ; pannes diagnostiquées (VLAN oublié sur un trunk, ACL bloquant les retours).</p>
         </div>
       </div>
       <p style="font-size:13px; color:var(--ink-soft); margin-top:14px;">
-        La procédure complète (12 phases, SIEM, site des alertes, failles volontaires de l'exercice) est téléchargeable ci-dessus : c'est un laboratoire, chaque faille est documentée avec sa correction.
+        Laboratoire : les failles volontaires de l'exercice sont documentées avec leur correction dans la procédure.
       </p>
     </div>
   </section>
@@ -373,6 +370,73 @@
         <p>Chaque projet est documenté dans un compte rendu complet, téléchargeable en PDF.</p>
       </div>
 
+      <!-- ===== Cybersécurité ===== -->
+      <h3 class="sub-h" id="cyber" style="margin-top:0;">Cybersécurité</h3>
+      <p style="font-size:14.5px; margin:-6px 0 16px;">Détection et SIEM, durcissement, filtrage, chiffrement et accès distant sécurisé : les 12 documents à lire en priorité.</p>
+      <div class="tp-grid" style="margin-bottom:44px;">
+        <div class="tp-card accent">
+          <div class="meta">CyberWarRoom · Nov. 2026</div>
+          <h4>Procédure complète : réseau, SIEM Wazuh, règles de détection, site des alertes</h4>
+          <a href="assets/docs/CyberWarRoom-Procedure-Infra-SIEM.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">CyberWarRoom · Nov. 2026</div>
+          <h4>Maquette réseau : VLAN, ACL et tests de cloisonnement</h4>
+          <a href="assets/docs/CyberWarRoom-CR-Maquette-PacketTracer.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">B3 · Nov. 2026</div>
+          <h4>Durcissement d'un domaine Active Directory (GPO, référentiel ANSSI)</h4>
+          <a href="assets/docs/WinSrv-B3-Durcissement-AD-GPO.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Projet personnel · 2026</div>
+          <h4>SIEM Wazuh + Suricata : détection et simulation d'attaques</h4>
+          <a href="assets/docs/SIEM-Wazuh-rapport.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Décembre 2025</div>
+          <h4>DVWA & mise en place d'un WAF (ModSecurity)</h4>
+          <a href="assets/docs/DVWA-WAF-ModSecurity.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Septembre 2025</div>
+          <h4>Scan de ports et inventaire réseau (Nmap)</h4>
+          <a href="assets/docs/Nmap-TD-Scan-Inventaire-Reseau.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Décembre 2025</div>
+          <h4>Raccordement d'un SI et sécurité de bout en bout (Stormshield SNS, VPN IPsec)</h4>
+          <a href="assets/docs/Raccordement-SI-Securite.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Serveur web</div>
+          <h4>Serveur LAMP sécurisé : TLS, pare-feu, CrowdSec, anti-DoS</h4>
+          <a href="assets/docs/Serveur-LAMP-securise.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Durcissement système</div>
+          <h4>Durcissement d'un serveur Ubuntu : MàJ, utilisateurs, pare-feu, logs</h4>
+          <a href="assets/docs/ESP32-Durcissement-Linux.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">IoT · Décembre 2025</div>
+          <h4>ESP32 : accès distant sécurisé via MQTTs/TLS</h4>
+          <a href="assets/docs/ESP32-SecureMQTT.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">IoT · Décembre 2025</div>
+          <h4>Tunnel VPN WireGuard pour l'administration de l'ESP32</h4>
+          <a href="assets/docs/WireGuard-VPN-ESP32.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Projet Fil Rouge</div>
+          <h4>Politique de sécurisation du réseau (pare-feu Default Deny, bastion SSH)</h4>
+          <a href="assets/docs/FilRouge-Securisation-Reseau.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+      </div>
+
+      <h3 class="sub-h" style="margin-top:0;">Projets détaillés</h3>
       <div class="featured-grid">
         <div class="project-card">
           <div class="tag-row"><span class="tag">SIEM</span><span class="tag">Wazuh</span><span class="tag">Suricata</span></div>
@@ -552,41 +616,6 @@
         </div>
       </div>
 
-      <!-- ===== Sous-catégorie : sécurité réseau, web & IoT ===== -->
-      <h3 style="font-size:19px; margin:44px 0 16px;">Sécurité réseau, web & IoT</h3>
-      <div class="tp-grid">
-        <div class="tp-card">
-          <div class="meta">Septembre 2025</div>
-          <h4>TD — Scan de ports et inventaire réseau (Nmap)</h4>
-          <a href="assets/docs/Nmap-TD-Scan-Inventaire-Reseau.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card">
-          <div class="meta">Décembre 2025</div>
-          <h4>DVWA & mise en place d'un WAF (ModSecurity)</h4>
-          <a href="assets/docs/DVWA-WAF-ModSecurity.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card">
-          <div class="meta">Décembre 2025</div>
-          <h4>Raccordement d'un SI & sécurité de bout en bout (Stormshield SNS)</h4>
-          <a href="assets/docs/Raccordement-SI-Securite.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card">
-          <div class="meta">Décembre 2025</div>
-          <h4>ESP32 — Accès distant sécurisé via MQTTs/TLS</h4>
-          <a href="assets/docs/ESP32-SecureMQTT.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card">
-          <div class="meta">Décembre 2025</div>
-          <h4>Tunnel VPN WireGuard pour administration ESP32</h4>
-          <a href="assets/docs/WireGuard-VPN-ESP32.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card">
-          <div class="meta">Durcissement système</div>
-          <h4>Durcissement d'un serveur Ubuntu — MàJ, utilisateurs, pare-feu, logs</h4>
-          <a href="assets/docs/ESP32-Durcissement-Linux.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-      </div>
-
       <!-- ===== Sous-catégorie : Linux & administration système ===== -->
       <h3 style="font-size:19px; margin:40px 0 16px;">Linux & administration système</h3>
       <div class="tp-grid">
@@ -693,7 +722,7 @@
       </div>
 
       <!-- ===== Sous-catégorie : Cisco Packet Tracer ===== -->
-      <h3 style="font-size:19px; margin:40px 0 16px;">Cisco Networking Academy — Packet Tracer</h3>
+      <h3 style="font-size:19px; margin:40px 0 16px;">Réseau — maquettes Packet Tracer</h3>
       <div class="tp-grid">
         <div class="tp-card">
           <div class="meta">Maquettes réseau</div>
@@ -712,8 +741,7 @@
         </div>
       </div>
       <p style="font-size:13px; color:var(--ink-soft); margin-top:10px;">
-        Fichiers .pkt à ouvrir avec Cisco Packet Tracer — réalisés dans le cadre de la certification
-        « Premiers pas avec Cisco Packet Tracer ».
+        Fichiers .pkt à ouvrir avec Cisco Packet Tracer.
       </p>
     </div>
   </section>
@@ -748,7 +776,7 @@
           <div class="about-tags">
             <span class="tag">SIEM (Wazuh)</span><span class="tag">Suricata / IDS</span><span class="tag">Règles de détection & corrélation</span>
             <span class="tag">MITRE ATT&CK</span><span class="tag">Centralisation de logs</span><span class="tag">Moindre privilège</span>
-            <span class="tag">Défense en profondeur</span><span class="tag">Security by Design</span><span class="tag">ISO 27001 (cours)</span>
+            <span class="tag">Défense en profondeur</span><span class="tag">Security by Design</span><span class="tag">ISO 27001 (notions)</span>
           </div>
         </div>
         <div class="skill-card">
@@ -777,7 +805,9 @@
         </div>
       </div>
 
-      <div class="certs">
+      <h3 id="certifications" class="sub-h" style="margin-top:48px; margin-bottom:6px;">Certifications</h3>
+      <p style="font-size:14.5px; margin:0 0 4px;">Formations complémentaires : Cisco Networking Academy, SecNumacadémie (ANSSI), LinkedIn Learning.</p>
+      <div class="certs" style="margin-top:12px;">
         <div class="cert-row">
           <span class="cert-dot"></span>
           <div style="flex:1;">
