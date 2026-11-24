@@ -11,7 +11,7 @@
 <meta property="og:title" content="Nissa Karadag — Portfolio Cybersécurité & Réseaux">
 <meta property="og:description" content="Cheffe de projet CyberWarRoom (Ynov), alternante admin réseau/systèmes/BDD, B3 Cybersécurité. Recherche une alternance en Master 1.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/css/style.css?v=6">
+<link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
 
@@ -370,7 +370,14 @@
         <p>Chaque projet est documenté dans un compte rendu complet, téléchargeable en PDF.</p>
       </div>
 
-      <h3 class="sub-h" style="margin-top:0;">Projets détaillés</h3>
+      <nav class="theme-chips" aria-label="Thèmes">
+        <a href="#t-cyber">Cybersécurité</a><a href="#t-sys">Systèmes & administration</a><a href="#t-res">Réseau & infrastructure</a><a href="#t-dev">Développement web</a>
+      </nav>
+
+      <div class="theme-head" id="t-cyber">
+        <h3>Cybersécurité</h3>
+        <p>SIEM et détection, durcissement, filtrage, VPN et chiffrement, IoT sécurisé. Voir aussi CyberWarRoom, plus haut.</p>
+      </div>
       <div class="featured-grid">
         <div class="project-card">
           <div class="tag-row"><span class="tag">SIEM</span><span class="tag">Wazuh</span><span class="tag">Suricata</span></div>
@@ -404,24 +411,6 @@
         </div>
 
         <div class="project-card">
-          <div class="tag-row"><span class="tag">B3 · Oct.–Nov. 2026</span><span class="tag">Ubuntu Server</span><span class="tag">nginx · LVM · ufw</span></div>
-          <h3>Exploitation d'un serveur Linux — projet Nexus360</h3>
-          <div class="meta">Ynov B3 · Ubuntu Server 24.04 LTS · 4 comptes rendus</div>
-          <p>
-            Du déploiement à l'exploitation : installation, SSH par clé, DHCP, partage avec miroir, gestion des identités
-            et des droits (15 comptes, 4 groupes, compte de service), puis maintenance : volume LVM, nginx, pare-feu,
-            patching contrôlé (20 paquets, noyau mis à jour sans coupure durable), lecture des journaux, diagnostic de
-            3 incidents par la preuve et procédure de reprise en 10 étapes.
-          </p>
-          <div class="card-actions" style="flex-direction:column; align-items:flex-start; gap:8px;">
-            <a href="assets/docs/Linux-B3-TP3-Maintenance-Nexus360.pdf" class="link-dl" download>↓ TP3 — maintenance & exploitation (incidents, journaux)</a>
-            <a href="assets/docs/Linux-B3-TP2-Identites-Groupes-Droits.pdf" class="link-dl" download>↓ TP2 — identités, groupes & droits d'accès</a>
-            <a href="assets/docs/Linux-B3-TP1-Serveur-Fichiers-SSH-DHCP.pdf" class="link-dl" download>↓ TP1 — serveur de fichiers, SSH, DHCP, miroir</a>
-            <a href="assets/docs/Linux-B3-TP-Installation-Ubuntu-Server.pdf" class="link-dl" download>↓ Installation & configuration réseau d'Ubuntu Server</a>
-          </div>
-        </div>
-
-        <div class="project-card">
           <div class="tag-row"><span class="tag">Apache</span><span class="tag">SSL/TLS</span><span class="tag">CrowdSec</span></div>
           <h3>Serveur LAMP sécurisé — Intranet / Extranet</h3>
           <div class="meta">Debian 12 · Apache 2.4 · vsftpd · CrowdSec</div>
@@ -436,42 +425,70 @@
         </div>
 
         <div class="project-card">
-          <div class="tag-row"><span class="tag">Projet de groupe · 4 pers.</span><span class="tag">Infra SI</span><span class="tag">Firewall</span></div>
-          <h3>Projet Fil Rouge — Infrastructure SI & Application Web Métier</h3>
-          <div class="meta">Ynov Bachelor 2 · avec Safaa Zemmar, Sriram Mallipoudy & Sami El Abdallaoui</div>
+          <div class="tag-row"><span class="tag">Stormshield SNS</span><span class="tag">VPN IPsec</span><span class="tag">PKI</span><span class="tag">Active Directory</span></div>
+          <h3>Raccordement de deux sites et sécurité de bout en bout</h3>
+          <div class="meta">Décembre 2025 · société fictive OpenBank · Paris et Nantes</div>
           <p>
-            Conception d'une infrastructure réseau segmentée pour une PME fictive de 45 collaborateurs :
-            règles firewall en Default Deny, bastion SSH pour centraliser les accès admin, et développement
-            d'une application métier de gestion de tickets IT (Apache · PHP · MariaDB). J'ai porté
-            l'introduction du projet à l'oral et contribué à la partie infrastructure/sécurité.
+            Interconnexion sécurisée de deux sites par un tunnel VPN IPsec entre deux pare-feu Stormshield SNS, avec
+            authentification mutuelle par certificats (une autorité de certification par pare-feu). Annuaire Active
+            Directory centralisé : contrôleur principal à Paris et contrôleur en lecture seule (RODC, Windows Server Core)
+            à Nantes.
           </p>
-          <div class="card-actions" style="flex-direction:column; align-items:flex-start; gap:8px;">
-            <a href="assets/docs/FilRouge-Cahier-des-charges.pdf" class="link-dl" download>↓ Cahier des charges</a>
-            <a href="assets/docs/FilRouge-Compte-rendu-Etape1.pdf" class="link-dl" download>↓ Compte rendu — étape 1</a>
-            <a href="assets/docs/FilRouge-Support-Presentation.pdf" class="link-dl" download>↓ Support de présentation</a>
-            <a href="assets/docs/FilRouge-Script-Oral.pdf" class="link-dl" download>↓ Script de la soutenance orale</a>
-            <a href="assets/docs/FilRouge-Architecture-Reseau.pdf" class="link-dl" download>↓ Architecture réseau (équipe)</a>
-            <a href="assets/docs/FilRouge-Securisation-Reseau.pdf" class="link-dl" download>↓ Politique de sécurisation (équipe)</a>
-            <a href="assets/docs/FilRouge-Plan-Adressage-IP.pdf" class="link-dl" download>↓ Plan d'adressage IP (équipe)</a>
-            <a href="assets/docs/FilRouge-Strategie-Sauvegarde.pdf" class="link-dl" download>↓ Stratégie de sauvegarde (équipe)</a>
+          <div class="card-actions">
+            <a href="assets/docs/Raccordement-SI-Securite.pdf" class="link-dl" download>↓ Télécharger le rapport (PDF)</a>
           </div>
         </div>
+      </div>
 
+      <h4 class="sub-h2">Rapports complémentaires</h4>
+      <div class="tp-grid">
+        <div class="tp-card accent">
+          <div class="meta">Décembre 2025</div>
+          <h4>DVWA & mise en place d'un WAF (ModSecurity)</h4>
+          <a href="assets/docs/DVWA-WAF-ModSecurity.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Septembre 2025</div>
+          <h4>Scan de ports et inventaire réseau (Nmap)</h4>
+          <a href="assets/docs/Nmap-TD-Scan-Inventaire-Reseau.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">Durcissement système</div>
+          <h4>Durcissement d'un serveur Ubuntu : MàJ, utilisateurs, pare-feu, logs</h4>
+          <a href="assets/docs/ESP32-Durcissement-Linux.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">IoT · Décembre 2025</div>
+          <h4>ESP32 : accès distant sécurisé via MQTTs/TLS</h4>
+          <a href="assets/docs/ESP32-SecureMQTT.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+        <div class="tp-card accent">
+          <div class="meta">IoT · Décembre 2025</div>
+          <h4>Tunnel VPN WireGuard pour l'administration de l'ESP32</h4>
+          <a href="assets/docs/WireGuard-VPN-ESP32.pdf" class="link-dl" download>↓ PDF</a>
+        </div>
+      </div>
+
+      <div class="theme-head" id="t-sys">
+        <h3>Systèmes & administration</h3>
+        <p>Exploitation de serveurs Linux et Windows, Active Directory, conteneurs.</p>
+      </div>
+      <div class="featured-grid">
         <div class="project-card">
-          <div class="tag-row"><span class="tag">VLAN</span><span class="tag">Subnetting</span><span class="tag">Cisco Packet Tracer</span></div>
-          <h3>Conception réseau Hill Start & IT Conseil</h3>
-          <div class="meta">Projet de groupe · avec Safaa Zemmar</div>
+          <div class="tag-row"><span class="tag">B3 · Oct.–Nov. 2026</span><span class="tag">Ubuntu Server</span><span class="tag">nginx · LVM · ufw</span></div>
+          <h3>Exploitation d'un serveur Linux — projet Nexus360</h3>
+          <div class="meta">Ynov B3 · Ubuntu Server 24.04 LTS · 4 comptes rendus</div>
           <p>
-            Conception complète du réseau d'un nouveau bâtiment pour un incubateur tech (jusqu'à 320 postes,
-            conforme aux recommandations ANSSI) : schéma physique et logique du réseau, découpage en 5 VLAN
-            (Admin, IT, RH, Invités, Serveurs) avec calcul des sous-réseaux en VLSM à partir d'un bloc /22,
-            et maquette fonctionnelle sous Cisco Packet Tracer.
+            Du déploiement à l'exploitation : installation, SSH par clé, DHCP, partage avec miroir, gestion des identités
+            et des droits (15 comptes, 4 groupes, compte de service), puis maintenance : volume LVM, nginx, pare-feu,
+            patching contrôlé (20 paquets, noyau mis à jour sans coupure durable), lecture des journaux, diagnostic de
+            3 incidents par la preuve et procédure de reprise en 10 étapes.
           </p>
           <div class="card-actions" style="flex-direction:column; align-items:flex-start; gap:8px;">
-            <a href="assets/docs/HillStart-Architecture-Technique.pdf" class="link-dl" download>↓ Document d'architecture technique (schémas + plan d'adressage)</a>
-            <a href="assets/docs/HillStart-PacketTracer.pkt" class="link-dl" download>↓ Maquette réseau (Cisco Packet Tracer)</a>
-            <a href="assets/docs/HillStart-Diagramme.drawio" class="link-dl" download>↓ Schémas sources (draw.io)</a>
-            <a href="assets/docs/HillStart-Sujet-Mission.pdf" class="link-dl" download>↓ Cahier des charges du projet (sujet)</a>
+            <a href="assets/docs/Linux-B3-TP3-Maintenance-Nexus360.pdf" class="link-dl" download>↓ TP3 — maintenance & exploitation (incidents, journaux)</a>
+            <a href="assets/docs/Linux-B3-TP2-Identites-Groupes-Droits.pdf" class="link-dl" download>↓ TP2 — identités, groupes & droits d'accès</a>
+            <a href="assets/docs/Linux-B3-TP1-Serveur-Fichiers-SSH-DHCP.pdf" class="link-dl" download>↓ TP1 — serveur de fichiers, SSH, DHCP, miroir</a>
+            <a href="assets/docs/Linux-B3-TP-Installation-Ubuntu-Server.pdf" class="link-dl" download>↓ Installation & configuration réseau d'Ubuntu Server</a>
           </div>
         </div>
 
@@ -494,100 +511,8 @@
         </div>
       </div>
 
-      <!-- ===== Sous-catégorie : applications web développées ===== -->
-      <h3 class="sub-h" style="margin-top:44px;">Applications web conçues et développées</h3>
-      <div class="featured-grid">
-        <div class="project-card">
-          <div class="tag-row"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Sécurité web</span></div>
-          <h3>Pellicœur — album photo partagé pour mariages</h3>
-          <div class="meta">Ma marque · conçu, développé et mis en ligne</div>
-          <p>
-            Les invités déposent photos et vidéos dans un album commun via un QR code ; l'organisateur gère l'événement,
-            les invités et un diaporama. Déployé sur hébergement mutualisé. Côté sécurité : jetons CSRF, politique CSP,
-            HSTS et en-têtes anti-sniffing, protection anti force brute, régénération des identifiants de session,
-            mots de passe hachés, dossier d'envoi verrouillé, installateur protégé par code secret.
-          </p>
-          <div class="card-actions">
-            <a href="https://pellicoeur.com" class="link-dl" target="_blank" rel="noopener">↗ pellicoeur.com</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="tag-row"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">API WhatsApp</span><span class="tag">IA</span></div>
-          <h3>SwiftReply — plateforme anti-perte de leads WhatsApp</h3>
-          <div class="meta">Plateforme multi-clients · super-admin et tableaux de bord isolés</div>
-          <p>
-            Chaque message client reçu sur WhatsApp Business est enregistré en base, reçoit une réponse immédiate de
-            l'IA, puis le staff peut reprendre la main ; une alerte part si la réponse échoue. Chaque client dispose de
-            son numéro, de son tableau de bord et de sa configuration. Sécurité : signature HMAC des webhooks vérifiée,
-            limitation de débit, en-têtes Helmet, mots de passe hachés (bcrypt), comparaisons à temps constant.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <div class="tag-row"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span></div>
-          <h3>StockFlow — gestion de stock et de commandes de matériel</h3>
-          <div class="meta">Application web · alertes e-mail · déploiement configuré sur Render</div>
-          <p>
-            Suivi des demandes, commandes, réceptions et stocks avec fiches produit, historique des prix, bons de commande
-            par fournisseur, export CSV et alertes e-mail. La récupération d'informations depuis un lien produit refuse
-            les adresses internes (protection SSRF) ; les mots de passe sont dérivés avec scrypt.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <div class="tag-row"><span class="tag">PHP</span><span class="tag">MariaDB</span><span class="tag">Développement web</span></div>
-          <h3>SherWheels Festival — Site événementiel</h3>
-          <div class="meta">Application web complète · billetterie, compte, programme</div>
-          <p>
-            Site vitrine et billetterie pour un festival auto/moto fictif : espace compte utilisateur,
-            panier et billetterie, page programme et intervenants. Développé en PHP/MariaDB et déployé
-            en production sur Render.
-          </p>
-          <div class="card-actions">
-            <a href="https://sherwheels.onrender.com/index.php" class="link-dl" target="_blank" rel="noopener">↗ Voir le site en ligne</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== Cybersécurité ===== -->
-      <h3 class="sub-h" id="cyber" style="margin:44px 0 6px;">Cybersécurité & IoT sécurisé</h3>
-      <p style="font-size:14.5px; margin:0 0 16px;">Rapports complémentaires aux projets ci-dessus : sécurité web et WAF, scan réseau, pare-feu et VPN, durcissement système, IoT chiffré.</p>
-      <div class="tp-grid">
-        <div class="tp-card accent">
-          <div class="meta">Décembre 2025</div>
-          <h4>DVWA & mise en place d'un WAF (ModSecurity)</h4>
-          <a href="assets/docs/DVWA-WAF-ModSecurity.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card accent">
-          <div class="meta">Septembre 2025</div>
-          <h4>Scan de ports et inventaire réseau (Nmap)</h4>
-          <a href="assets/docs/Nmap-TD-Scan-Inventaire-Reseau.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card accent">
-          <div class="meta">Décembre 2025</div>
-          <h4>Raccordement d'un SI et sécurité de bout en bout (Stormshield SNS, VPN IPsec)</h4>
-          <a href="assets/docs/Raccordement-SI-Securite.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card accent">
-          <div class="meta">Durcissement système</div>
-          <h4>Durcissement d'un serveur Ubuntu : MàJ, utilisateurs, pare-feu, logs</h4>
-          <a href="assets/docs/ESP32-Durcissement-Linux.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card accent">
-          <div class="meta">IoT · Décembre 2025</div>
-          <h4>ESP32 : accès distant sécurisé via MQTTs/TLS</h4>
-          <a href="assets/docs/ESP32-SecureMQTT.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-        <div class="tp-card accent">
-          <div class="meta">IoT · Décembre 2025</div>
-          <h4>Tunnel VPN WireGuard pour l'administration de l'ESP32</h4>
-          <a href="assets/docs/WireGuard-VPN-ESP32.pdf" class="link-dl" download>↓ PDF</a>
-        </div>
-      </div>
-
-      <!-- ===== Sous-catégorie : Linux & administration système ===== -->
-      <h3 style="font-size:19px; margin:40px 0 16px;">Linux & administration système</h3>
+      <!-- ===== Sous-catégorie : Linux — travaux pratiques ===== -->
+      <h4 class="sub-h2">Linux — travaux pratiques</h4>
       <div class="tp-grid">
         <div class="tp-card">
           <div class="meta">Novembre 2025</div>
@@ -646,8 +571,8 @@
         </div>
       </div>
 
-      <!-- ===== Sous-catégorie : Windows Server & Active Directory ===== -->
-      <h3 style="font-size:19px; margin:40px 0 16px;">Windows Server & Active Directory</h3>
+      <!-- ===== Sous-catégorie : Windows Server & Active Directory — travaux pratiques ===== -->
+      <h4 class="sub-h2">Windows Server & Active Directory — travaux pratiques</h4>
       <div class="tp-grid">
         <div class="tp-card">
           <div class="meta">TP1 · Février 2026</div>
@@ -691,8 +616,54 @@
         </div>
       </div>
 
+      <div class="theme-head" id="t-res">
+        <h3>Réseau & infrastructure</h3>
+        <p>Conception d'infrastructures segmentées, adressage, maquettes.</p>
+      </div>
+      <div class="featured-grid">
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">Projet de groupe · 4 pers.</span><span class="tag">Infra SI</span><span class="tag">Firewall</span></div>
+          <h3>Projet Fil Rouge — Infrastructure SI & Application Web Métier</h3>
+          <div class="meta">Ynov Bachelor 2 · avec Safaa Zemmar, Sriram Mallipoudy & Sami El Abdallaoui</div>
+          <p>
+            Conception d'une infrastructure réseau segmentée pour une PME fictive de 45 collaborateurs :
+            règles firewall en Default Deny, bastion SSH pour centraliser les accès admin, et développement
+            d'une application métier de gestion de tickets IT (Apache · PHP · MariaDB). J'ai porté
+            l'introduction du projet à l'oral et contribué à la partie infrastructure/sécurité.
+          </p>
+          <div class="card-actions" style="flex-direction:column; align-items:flex-start; gap:8px;">
+            <a href="assets/docs/FilRouge-Cahier-des-charges.pdf" class="link-dl" download>↓ Cahier des charges</a>
+            <a href="assets/docs/FilRouge-Compte-rendu-Etape1.pdf" class="link-dl" download>↓ Compte rendu — étape 1</a>
+            <a href="assets/docs/FilRouge-Support-Presentation.pdf" class="link-dl" download>↓ Support de présentation</a>
+            <a href="assets/docs/FilRouge-Script-Oral.pdf" class="link-dl" download>↓ Script de la soutenance orale</a>
+            <a href="assets/docs/FilRouge-Architecture-Reseau.pdf" class="link-dl" download>↓ Architecture réseau (équipe)</a>
+            <a href="assets/docs/FilRouge-Securisation-Reseau.pdf" class="link-dl" download>↓ Politique de sécurisation (équipe)</a>
+            <a href="assets/docs/FilRouge-Plan-Adressage-IP.pdf" class="link-dl" download>↓ Plan d'adressage IP (équipe)</a>
+            <a href="assets/docs/FilRouge-Strategie-Sauvegarde.pdf" class="link-dl" download>↓ Stratégie de sauvegarde (équipe)</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">VLAN</span><span class="tag">Subnetting</span><span class="tag">Cisco Packet Tracer</span></div>
+          <h3>Conception réseau Hill Start & IT Conseil</h3>
+          <div class="meta">Projet de groupe · avec Safaa Zemmar</div>
+          <p>
+            Conception complète du réseau d'un nouveau bâtiment pour un incubateur tech (jusqu'à 320 postes,
+            conforme aux recommandations ANSSI) : schéma physique et logique du réseau, découpage en 5 VLAN
+            (Admin, IT, RH, Invités, Serveurs) avec calcul des sous-réseaux en VLSM à partir d'un bloc /22,
+            et maquette fonctionnelle sous Cisco Packet Tracer.
+          </p>
+          <div class="card-actions" style="flex-direction:column; align-items:flex-start; gap:8px;">
+            <a href="assets/docs/HillStart-Architecture-Technique.pdf" class="link-dl" download>↓ Document d'architecture technique (schémas + plan d'adressage)</a>
+            <a href="assets/docs/HillStart-PacketTracer.pkt" class="link-dl" download>↓ Maquette réseau (Cisco Packet Tracer)</a>
+            <a href="assets/docs/HillStart-Diagramme.drawio" class="link-dl" download>↓ Schémas sources (draw.io)</a>
+            <a href="assets/docs/HillStart-Sujet-Mission.pdf" class="link-dl" download>↓ Cahier des charges du projet (sujet)</a>
+          </div>
+        </div>
+      </div>
+
       <!-- ===== Sous-catégorie : Cisco Packet Tracer ===== -->
-      <h3 style="font-size:19px; margin:40px 0 16px;">Réseau — maquettes Packet Tracer</h3>
+      <h4 class="sub-h2">Maquettes Packet Tracer</h4>
       <div class="tp-grid">
         <div class="tp-card">
           <div class="meta">Maquettes réseau</div>
@@ -713,6 +684,64 @@
       <p style="font-size:13px; color:var(--ink-soft); margin-top:10px;">
         Fichiers .pkt à ouvrir avec Cisco Packet Tracer.
       </p>
+      <div class="theme-head" id="t-dev">
+        <h3>Développement web</h3>
+        <p>Applications conçues et développées, avec une attention portée à la sécurité.</p>
+      </div>
+      <div class="featured-grid">
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Sécurité web</span></div>
+          <h3>Pellicœur — album photo partagé pour mariages</h3>
+          <div class="meta">Ma marque · conçu, développé et mis en ligne</div>
+          <p>
+            Les invités déposent photos et vidéos dans un album commun via un QR code ; l'organisateur gère l'événement,
+            les invités et un diaporama. Déployé sur hébergement mutualisé. Côté sécurité : jetons CSRF, politique CSP,
+            HSTS et en-têtes anti-sniffing, protection anti force brute, régénération des identifiants de session,
+            mots de passe hachés, dossier d'envoi verrouillé, installateur protégé par code secret.
+          </p>
+          <div class="card-actions">
+            <a href="https://pellicoeur.com" class="link-dl" target="_blank" rel="noopener">↗ pellicoeur.com</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">API WhatsApp</span><span class="tag">IA</span></div>
+          <h3>SwiftReply — plateforme anti-perte de leads WhatsApp</h3>
+          <div class="meta">Plateforme multi-clients · super-admin et tableaux de bord isolés</div>
+          <p>
+            Chaque message client reçu sur WhatsApp Business est enregistré en base, reçoit une réponse immédiate de
+            l'IA, puis le staff peut reprendre la main ; une alerte part si la réponse échoue. Chaque client dispose de
+            son numéro, de son tableau de bord et de sa configuration. Sécurité : signature HMAC des webhooks vérifiée,
+            limitation de débit, en-têtes Helmet, mots de passe hachés (bcrypt), comparaisons à temps constant.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span></div>
+          <h3>StockFlow — gestion de stock et de commandes de matériel</h3>
+          <div class="meta">Application web · alertes e-mail · déploiement configuré sur Render</div>
+          <p>
+            Suivi des demandes, commandes, réceptions et stocks avec fiches produit, historique des prix, bons de commande
+            par fournisseur, export CSV et alertes e-mail. La récupération d'informations depuis un lien produit refuse
+            les adresses internes (protection SSRF) ; les mots de passe sont dérivés avec scrypt.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">PHP</span><span class="tag">MariaDB</span><span class="tag">Développement web</span></div>
+          <h3>SherWheels Festival — Site événementiel</h3>
+          <div class="meta">Application web complète · billetterie, compte, programme</div>
+          <p>
+            Site vitrine et billetterie pour un festival auto/moto fictif : espace compte utilisateur,
+            panier et billetterie, page programme et intervenants. Développé en PHP/MariaDB et déployé
+            en production sur Render.
+          </p>
+          <div class="card-actions">
+            <a href="https://sherwheels.onrender.com/index.php" class="link-dl" target="_blank" rel="noopener">↗ Voir le site en ligne</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -776,15 +805,14 @@
       </div>
 
       <h3 id="certifications" class="sub-h" style="margin-top:48px; margin-bottom:6px;">Certifications</h3>
-      <p style="font-size:14.5px; margin:0 0 4px;">Formations complémentaires : Cisco Networking Academy, SecNumacadémie (ANSSI), LinkedIn Learning.</p>
+      <p style="font-size:14.5px; margin:0 0 4px;">Cisco Networking Academy, SecNumacadémie (ANSSI), LinkedIn Learning, Pix.</p>
       <div class="certs" style="margin-top:12px;">
         <div class="cert-row">
           <span class="cert-dot"></span>
           <div style="flex:1;">
-            <h4>SecNumacadémie (ANSSI) — Fondamentaux de la cybersécurité</h4>
-            <span>4 modules validés — Panorama de la SSI, Authentification, Sécurité sur Internet, Poste de travail & nomadisme (84–94%) · Janvier 2026</span>
+            <h4>Cisco Networking Academy — Ethical Hacking</h4>
+            <span>Septembre 2026</span>
           </div>
-          <a href="assets/certs/SecNumacademie-Fondamentaux-Cybersecurite.pdf" class="link-dl" download style="white-space:nowrap;">↓ Attestation</a>
         </div>
         <div class="cert-row">
           <span class="cert-dot"></span>
@@ -797,6 +825,13 @@
         <div class="cert-row">
           <span class="cert-dot"></span>
           <div style="flex:1;">
+            <h4>LinkedIn Learning — Les fondements de la sécurité informatique et de la cybersécurité</h4>
+            <span>Mars 2026</span>
+          </div>
+        </div>
+        <div class="cert-row">
+          <span class="cert-dot"></span>
+          <div style="flex:1;">
             <h4>Cisco Networking Academy — Premiers pas avec Cisco Packet Tracer</h4>
             <span>Février 2026</span>
           </div>
@@ -805,8 +840,16 @@
         <div class="cert-row">
           <span class="cert-dot"></span>
           <div style="flex:1;">
-            <h4>LinkedIn Learning — Les fondements de la sécurité informatique et de la cybersécurité</h4>
-            <span>2026</span>
+            <h4>SecNumacadémie (ANSSI) — Fondamentaux de la cybersécurité</h4>
+            <span>4 modules validés — Panorama de la SSI, Authentification, Sécurité sur Internet, Poste de travail & nomadisme (84–94%) · Janvier 2026</span>
+          </div>
+          <a href="assets/certs/SecNumacademie-Fondamentaux-Cybersecurite.pdf" class="link-dl" download style="white-space:nowrap;">↓ Attestation</a>
+        </div>
+        <div class="cert-row">
+          <span class="cert-dot"></span>
+          <div style="flex:1;">
+            <h4>Pix — certification des compétences numériques (Éducation nationale)</h4>
+            <span>Février 2024</span>
           </div>
         </div>
       </div>
