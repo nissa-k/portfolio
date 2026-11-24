@@ -519,3 +519,4 @@ h2{ line-height:1.2; }
 /* ligne "Lien cyber" en bas des cartes */
 .cyber-note{ margin:16px 0 0; padding-top:12px; border-top:1px solid var(--border); font-size:13.5px; color:var(--text-muted); }
 .cyber-note b{ font-family:'Rajdhani',sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); font-size:12.5px; }
+.brand-logo{ flex-shrink:0; }

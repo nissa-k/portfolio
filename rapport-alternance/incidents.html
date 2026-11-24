@@ -89,13 +89,20 @@
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Incident 3</span>
-        <h2>Un poste piraté : un clic sur un lien, des données chiffrées.</h2>
-        <p>Chez un client, un utilisateur a cliqué sur un lien. Ses données ont été volées puis chiffrées, et il a fallu tout remettre à zéro.</p>
+        <h2>Un poste piraté : un exécutable lancé, des données chiffrées.</h2>
+        <p>Chez un client, des fichiers se sont retrouvés chiffrés. Retour sur ce qui s'est passé, dans l'ordre.</p>
       </div>
-      <div class="grid-3">
-        <div class="card"><span class="tag">Constat</span><h3>Un simple clic</h3><p>Un lien ouvert par l'utilisateur a suffi : données volées et fichiers chiffrés, donc inutilisables.</p></div>
-        <div class="card"><span class="tag">Action</span><h3>Tout remettre à zéro</h3><p>Réinstallation de Windows, puis restauration des données à partir des sauvegardes qui existaient déjà.</p></div>
-        <div class="card"><span class="tag">Ce que ça illustre</span><h3>Le rôle des sauvegardes</h3><p>Ce qui a limité les dégâts, ce sont des sauvegardes disponibles. Sans elles, les données chiffrées étaient perdues.</p></div>
+      <div class="grid-2">
+        <div class="card"><span class="tag">1 · Constat</span><h3>Constater les dégâts</h3><p>Les données du client étaient chiffrées et inutilisables : le point de départ de l'enquête.</p></div>
+        <div class="card"><span class="tag">2 · Origine</span><h3>Retrouver l'exécutable</h3><p>On retrouve sur le poste l'exécutable téléchargé, sur lequel le client avait cliqué. Le chiffrement n'était intervenu que quelque temps plus tard : l'attaque a donc commencé bien avant qu'on s'en aperçoive.</p></div>
+        <div class="card"><span class="tag">3 · Réponse</span><h3>Tout remettre à zéro</h3><p>Une fois les données chiffrées, il n'y avait rien à récupérer sur le poste. Il a fallu tout nettoyer, réinitialiser et réinstaller Windows.</p></div>
+        <div class="card"><span class="tag">4 · Reprise</span><h3>Restaurer la base SQL</h3><p>La base de données SQL a été restaurée à partir d'une sauvegarde. Je crée des bases SQL et je sais aussi les sauvegarder et les restaurer.</p></div>
+      </div>
+      <div class="panel" style="margin-top:20px; padding:28px;">
+        <span class="section-tag">Ce que ça illustre</span>
+        <p style="color:var(--text-muted); font-size:15px; max-width:80ch; margin-top:10px;">
+          Une fois le chiffrement lancé, seule une sauvegarde permet de repartir. Cela montre l'intérêt de sauvegardes régulières dont on sait vérifier la restauration, et celui de ne pas exécuter un fichier téléchargé sans l'avoir vérifié.
+        </p>
       </div>
       <div class="panel" style="margin-top:20px; padding:28px;">
         <span class="section-tag">Un autre cas, plus léger</span>
