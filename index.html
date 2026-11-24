@@ -11,7 +11,7 @@
 <meta property="og:title" content="Nissa Karadag — Portfolio Cybersécurité & Réseaux">
 <meta property="og:description" content="Cheffe de projet CyberWarRoom (Ynov), alternante admin réseau/systèmes/BDD, B3 Cybersécurité. Recherche une alternance en Master 1.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
 <body>
 
@@ -189,7 +189,8 @@
           <p>
             Je pilote le laboratoire de cyberdéfense d'Ynov : un scénario d'attaque (« Le stand piégé ») rejoué sur un
             réseau de salon segmenté, supervisé par un SIEM jusqu'à la décision de la cellule de crise.
-            Équipe de 13 personnes, en lien avec l'équipe infra.
+            Équipe de 13 personnes, en lien avec l'équipe infra. J'interviens sur les trois volets :
+            cybersécurité (détection, SIEM), infrastructure (réseau, maquette) et développement (site des alertes).
           </p>
           <ul>
             <li>Réseau à 7 VLAN, pare-feu en refus par défaut, VPN WireGuard</li>
@@ -206,6 +207,7 @@
           <div class="kv"><span>Rôle</span><b>Cheffe de projet</b></div>
           <div class="kv"><span>Cadre</span><b>Ynov · labo national</b></div>
           <div class="kv"><span>Statut</span><b>En cours · maquette validée</b></div>
+          <div class="kv"><span>Volets</span><b>Cyber · Infra · Dev</b></div>
           <div class="kv"><span>Socle</span><b>Cisco · Wazuh · Suricata</b></div>
         </div>
       </div>
@@ -376,9 +378,31 @@
 
       <div class="theme-head" id="t-cyber">
         <h3>Cybersécurité</h3>
-        <p>SIEM et détection, durcissement, filtrage, VPN et chiffrement, IoT sécurisé. Voir aussi CyberWarRoom, plus haut.</p>
+        <p>Détection, durcissement, filtrage, chiffrement, audit et sécurité industrielle : de la configuration à la preuve.</p>
+      </div>
+      <div class="tp-grid" style="margin-bottom:22px;">
+        <div class="tp-card accent"><div class="meta">Détection</div><h4>SIEM Wazuh, IDS Suricata, règles MITRE ATT&CK</h4></div>
+        <div class="tp-card accent"><div class="meta">Durcissement</div><h4>Active Directory (ANSSI), GPO, Ubuntu, Apache</h4></div>
+        <div class="tp-card accent"><div class="meta">Filtrage</div><h4>Stormshield SNS, ACL Cisco, WAF ModSecurity</h4></div>
+        <div class="tp-card accent"><div class="meta">Chiffrement</div><h4>IPsec, WireGuard, TLS / MQTTs, PKI</h4></div>
+        <div class="tp-card accent"><div class="meta">Audit & offensif</div><h4>Nmap, DVWA, Kali, Wireshark, CTF HackTheBox / TryHackMe</h4></div>
+        <div class="tp-card accent"><div class="meta">OT / IoT</div><h4>Modbus, OpenPLC, ESP32 sécurisé</h4></div>
       </div>
       <div class="featured-grid">
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">Cheffe de projet</span><span class="tag">Wazuh · Suricata</span><span class="tag">MITRE ATT&CK</span></div>
+          <h3>CyberWarRoom : défendre un salon piégé</h3>
+          <div class="meta">Laboratoire national Ynov · en cours · équipe de 13</div>
+          <p>Réseau segmenté à 7 VLAN, SIEM avec 8 règles de détection rattachées à MITRE ATT&CK et corrélation menant à la cellule de crise. Je coordonne les volets cyber, infra et développement.</p>
+          <div class="card-actions"><a href="#cyberwarroom" class="link-dl">Voir le projet →</a></div>
+        </div>
+        <div class="project-card">
+          <div class="tag-row"><span class="tag">Stage</span><span class="tag">OT/IT</span><span class="tag">Modbus</span><span class="tag">Wazuh · Graylog</span></div>
+          <h3>Lab de sécurité industrielle OT/IT</h3>
+          <div class="meta">Stage · accès distant chiffré, attaque Modbus simulée, supervision</div>
+          <p>Lab de 5 machines virtuelles : automate Modbus simulé, poste attaquant Kali, analyse réseau Wireshark, durcissement et supervision Wazuh.</p>
+          <div class="card-actions"><a href="#stage" class="link-dl">Voir le stage →</a></div>
+        </div>
         <div class="project-card">
           <div class="tag-row"><span class="tag">SIEM</span><span class="tag">Wazuh</span><span class="tag">Suricata</span></div>
           <h3>Laboratoire SOC & Sécurité</h3>
@@ -628,18 +652,19 @@
           <p>
             Conception d'une infrastructure réseau segmentée pour une PME fictive de 45 collaborateurs :
             règles firewall en Default Deny, bastion SSH pour centraliser les accès admin, et développement
-            d'une application métier de gestion de tickets IT (Apache · PHP · MariaDB). J'ai porté
-            l'introduction du projet à l'oral et contribué à la partie infrastructure/sécurité.
+            d'une application métier de gestion de tickets IT (Apache · PHP · MariaDB). Mon rôle : gestion de projet
+            (planning, cahier des charges, UML, rapport final), développement frontend, base de données et sécurisation
+            du code applicatif ; j'ai aussi porté l'introduction à l'oral.
           </p>
           <div class="card-actions" style="flex-direction:column; align-items:flex-start; gap:8px;">
             <a href="assets/docs/FilRouge-Cahier-des-charges.pdf" class="link-dl" download>↓ Cahier des charges</a>
             <a href="assets/docs/FilRouge-Compte-rendu-Etape1.pdf" class="link-dl" download>↓ Compte rendu — étape 1</a>
             <a href="assets/docs/FilRouge-Support-Presentation.pdf" class="link-dl" download>↓ Support de présentation</a>
             <a href="assets/docs/FilRouge-Script-Oral.pdf" class="link-dl" download>↓ Script de la soutenance orale</a>
-            <a href="assets/docs/FilRouge-Architecture-Reseau.pdf" class="link-dl" download>↓ Architecture réseau (équipe)</a>
-            <a href="assets/docs/FilRouge-Securisation-Reseau.pdf" class="link-dl" download>↓ Politique de sécurisation (équipe)</a>
-            <a href="assets/docs/FilRouge-Plan-Adressage-IP.pdf" class="link-dl" download>↓ Plan d'adressage IP (équipe)</a>
-            <a href="assets/docs/FilRouge-Strategie-Sauvegarde.pdf" class="link-dl" download>↓ Stratégie de sauvegarde (équipe)</a>
+            <a href="assets/docs/FilRouge-Architecture-Reseau.pdf" class="link-dl" download>↓ Architecture réseau (S. Mallipoudy)</a>
+            <a href="assets/docs/FilRouge-Securisation-Reseau.pdf" class="link-dl" download>↓ Politique de sécurisation (S. Mallipoudy)</a>
+            <a href="assets/docs/FilRouge-Plan-Adressage-IP.pdf" class="link-dl" download>↓ Plan d'adressage IP (S. Mallipoudy)</a>
+            <a href="assets/docs/FilRouge-Strategie-Sauvegarde.pdf" class="link-dl" download>↓ Stratégie de sauvegarde (S. Mallipoudy)</a>
           </div>
         </div>
 
@@ -841,7 +866,7 @@
           <span class="cert-dot"></span>
           <div style="flex:1;">
             <h4>SecNumacadémie (ANSSI) — Fondamentaux de la cybersécurité</h4>
-            <span>4 modules validés — Panorama de la SSI, Authentification, Sécurité sur Internet, Poste de travail & nomadisme (84–94%) · Janvier 2026</span>
+            <span>Janvier 2026</span>
           </div>
           <a href="assets/certs/SecNumacademie-Fondamentaux-Cybersecurite.pdf" class="link-dl" download style="white-space:nowrap;">↓ Attestation</a>
         </div>
