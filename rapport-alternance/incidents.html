@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nissa Karadag — Rapport d'alternance · Incidents & diagnostic</title>
-<meta name="description" content="Deux incidents réels d'alternance : boucle réseau et ports défaillants, changement d'IP publique.">
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<meta name="description" content="Incidents réels d'alternance : boucle réseau, ports défaillants, changement d'IP publique, poste piraté.">
+<link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
       <div class="breadcrumb"><a href="index.html">Accueil</a> / Incidents &amp; diagnostic</div>
       <span class="section-tag">Pannes réelles</span>
       <h1>Quand le réseau tombe, il faut savoir par où commencer.</h1>
-      <p>Deux incidents vécus en alternance et ce qu'ils illustrent.</p>
+      <p>Des incidents vécus en alternance et ce qu'ils illustrent.</p>
     </div>
   </section>
 
@@ -79,6 +79,29 @@
         <div class="card"><span class="tag">Constat</span><h3>Une adresse qui change</h3><p>Tout ce qui pointait vers l'ancienne IP publique cessait de fonctionner : accès distants, redirections, services exposés.</p></div>
         <div class="card"><span class="tag">Action</span><h3>Reprendre site par site</h3><p>Mise à jour des configurations sur le siège puis sur chaque filiale, pour rétablir les accès.</p></div>
         <div class="card"><span class="tag">Ce que ça illustre</span><h3>Dépendances cachées</h3><p>Une IP publique ou une redirection de ports oubliée peut casser un service ou, au contraire, exposer un accès qu'on croyait fermé.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Incident 3</span>
+        <h2>Un poste piraté : un clic sur un lien, des données chiffrées.</h2>
+        <p>Chez un client, un utilisateur a cliqué sur un lien. Ses données ont été volées puis chiffrées, et il a fallu tout remettre à zéro.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><span class="tag">Constat</span><h3>Un simple clic</h3><p>Un lien ouvert par l'utilisateur a suffi : données volées et fichiers chiffrés, donc inutilisables.</p></div>
+        <div class="card"><span class="tag">Action</span><h3>Tout remettre à zéro</h3><p>Réinstallation de Windows, puis restauration des données à partir des sauvegardes qui existaient déjà.</p></div>
+        <div class="card"><span class="tag">Ce que ça illustre</span><h3>Le rôle des sauvegardes</h3><p>Ce qui a limité les dégâts, ce sont des sauvegardes disponibles. Sans elles, les données chiffrées étaient perdues.</p></div>
+      </div>
+      <div class="panel" style="margin-top:20px; padding:28px;">
+        <span class="section-tag">Un autre cas, plus léger</span>
+        <p style="color:var(--text-muted); font-size:15px; max-width:80ch; margin-top:10px;">
+          Chez un autre client, de fausses alertes de piratage (pop-ups) s'affichaient sur le poste. Les cookies ont été nettoyés et l'ensemble de ses postes a été revérifié. Ce genre de fausse alerte est une arnaque courante : savoir la reconnaître évite d'y répondre.
+        </p>
       </div>
     </div>
   </section>
