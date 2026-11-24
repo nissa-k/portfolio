@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Missions : liste de domaines à gauche, détail à droite (sans JS, les cartes restent affichées)
 (function () {
   const src = document.getElementById('missions');
-  if (!src) return;
+  if (!src || src.dataset.done) return;
+  src.dataset.done = '1';
   const cards = Array.from(src.querySelectorAll(':scope > .card'));
   if (!cards.length) return;
 
