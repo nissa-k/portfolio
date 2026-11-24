@@ -1,5 +1,5 @@
 /* ============================================================
-   NISSA KARADAG — RAPPORT DE STAGE / PORTFOLIO
+   NISSA KARADAG — RAPPORT D'ALTERNANCE / PORTFOLIO
    Design system : "poste de supervision" (HMI / SCADA)
    ============================================================ */
 
@@ -7,19 +7,19 @@
 
 :root{
   /* --- couleurs --- */
-  --bg:            #0A0D12;
-  --bg-panel:      #11151C;
-  --bg-panel-alt:  #151A22;
-  --grid-line:     #1E2530;
-  --border:        #262E3A;
+  --bg:            #020D1C;
+  --bg-panel:      #07182E;
+  --bg-panel-alt:  #0B2038;
+  --grid-line:     #0C2240;
+  --border:        #17335A;
   --text:          #E8EAED;
-  --text-muted:    #8B93A3;
-  --text-faint:    #59606E;
+  --text-muted:    #9DB0C8;
+  --text-faint:    #5F7592;
 
-  --amber:         #E8A33D;
-  --amber-dim:     #6B4F22;
-  --cyan:          #52BFCB;
-  --cyan-dim:      #204046;
+  --amber:         #3D9BFF;
+  --amber-dim:     #1B4A80;
+  --cyan:          #7CC4FF;
+  --cyan-dim:      #14375C;
   --ok:            #4CAF6D;
   --alert:         #D9564A;
 
@@ -73,7 +73,7 @@ ul{ margin:0; padding:0; list-style:none; }
 /* ============ TOPBAR ============ */
 .topbar{
   position:sticky; top:0; z-index:50;
-  background:rgba(10,13,18,.86);
+  background:rgba(2,13,28,.86);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
 }
@@ -141,7 +141,7 @@ ul{ margin:0; padding:0; list-style:none; }
   text-transform:uppercase;
   color:var(--amber);
   background:var(--amber-dim);
-  border:1px solid rgba(232,163,61,.35);
+  border:1px solid rgba(61,155,255,.35);
   padding:6px 12px;
   border-radius:20px;
   margin-bottom:22px;
@@ -170,8 +170,8 @@ ul{ margin:0; padding:0; list-style:none; }
   display:inline-flex; align-items:center; gap:8px;
   transition:.15s;
 }
-.btn-primary{ background:var(--amber); color:#1a1206; border-color:var(--amber); font-weight:600; }
-.btn-primary:hover{ background:#f2b451; }
+.btn-primary{ background:var(--amber); color:#02101f; border-color:var(--amber); font-weight:600; }
+.btn-primary:hover{ background:#63b0ff; }
 .btn-ghost{ color:var(--text); }
 .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); }
 
