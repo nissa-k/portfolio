@@ -465,3 +465,41 @@ h2{ line-height:1.2; }
 /* logo Info Concept */
 .brand-logo{ height:30px; width:auto; display:block; }
 .title-logo{ height:1.05em; width:auto; vertical-align:-0.12em; margin-left:.15em; }
+
+/* ============ Intro façon Info Concept ============ */
+.ic-intro{ position:relative; min-height:calc(100vh - 64px); max-height:760px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 20px; }
+.ic-content{ position:relative; z-index:2; max-width:760px; animation:icUp .9s ease 1.5s both; }
+.ic-kicker{ display:inline-block; font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:13px; color:#7CC4FF; margin-bottom:18px; }
+.ic-content h1{ font-size:clamp(32px,5vw,58px); line-height:1.15; margin-bottom:18px; font-weight:700; }
+.ic-logo{ height:1.5em; width:auto; vertical-align:-.45em; margin-left:.1em; }
+.ic-content p{ color:var(--text-muted); font-size:18px; margin:0 auto 28px; max-width:46ch; }
+.ic-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.ic-actions .arr{ display:inline-grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--lime); color:#0a1a00; font-weight:700; margin-right:-12px; }
+.ic-splash{ position:absolute; inset:0; z-index:3; display:grid; place-items:center; pointer-events:none; animation:icSplash 1.7s ease both; }
+.splash-logo{ height:150px; width:auto; }
+.ic-chip{ position:absolute; z-index:1; animation:icChip .9s cubic-bezier(.2,.8,.2,1) var(--d) both; }
+.ic-chip .pill{ display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:14px; padding:9px 16px; border-radius:14px; color:#eaf3ff; background:linear-gradient(135deg,rgba(30,70,130,.7),rgba(9,28,56,.75)); border:1px solid rgba(120,170,230,.35); box-shadow:0 8px 30px rgba(0,0,0,.35); animation:icFloat var(--f) ease-in-out infinite; }
+.ic-chip .pill::before{ content:""; width:8px; height:8px; border-radius:50%; background:#4FA3FF; box-shadow:0 0 8px #4FA3FF; }
+.ic-chip .pill.g{ border-color:rgba(166,206,31,.4); }
+.ic-chip .pill.g::before{ background:var(--lime); box-shadow:0 0 8px var(--lime); }
+.ic-scroll{ position:absolute; bottom:10px; left:50%; transform:translateX(-50%); z-index:2; font-family:'Rajdhani',sans-serif; font-weight:600; letter-spacing:.16em; font-size:11px; text-transform:uppercase; color:var(--text-faint); animation:icUp .9s ease 2s both; }
+@keyframes icSplash{ 0%{opacity:0; transform:scale(1.1)} 30%{opacity:1; transform:scale(1)} 70%{opacity:1; transform:scale(1)} 100%{opacity:0; transform:scale(.7); visibility:hidden} }
+@keyframes icChip{ from{opacity:0; transform:translate(var(--dx),var(--dy)) scale(.4)} to{opacity:1; transform:none} }
+@keyframes icFloat{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes icUp{ from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none} }
+@media (max-width:760px){
+  .ic-intro{ min-height:640px; padding:110px 18px 100px; }
+  .ic-chip{ display:none; }
+  .ic-chip:nth-of-type(1),.ic-chip:nth-of-type(2),.ic-chip:nth-of-type(3),.ic-chip:nth-of-type(7),.ic-chip:nth-of-type(8){ display:block; }
+  .ic-chip:nth-of-type(1){ left:5% !important; top:34px !important; }
+  .ic-chip:nth-of-type(2){ left:42% !important; top:18px !important; }
+  .ic-chip:nth-of-type(3){ left:74% !important; top:56px !important; }
+  .ic-chip:nth-of-type(7){ left:6% !important; top:auto !important; bottom:62px; }
+  .ic-chip:nth-of-type(8){ left:52% !important; top:auto !important; bottom:40px; }
+  .splash-logo{ height:100px; }
+  .ic-chip .pill{ font-size:12px; padding:7px 12px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .ic-splash{ display:none; }
+  .ic-content,.ic-chip,.ic-chip .pill,.ic-scroll{ animation:none; }
+}
